@@ -1,0 +1,83 @@
+/* Variables de la pagina*/
+:root {
+    --Principal: #664187;
+    --Secundario: #c3acd0;
+    --Fondo: #F7EFE5;
+    --Negro: #FFFBF5;
+    --Blanco: black;
+    --Oscuro: #D9D9D9;
+    
+    --fsizeProductos: 22px;
+    --fsizeDescripcion: 26px;
+
+}
+
+/*Estilo general de la pagina */
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    
+   
+}
+
+/*Estilo del header*/
+#CtnHead{
+    display: flex;
+    flex-direction: row;
+    height: 17vh;
+    text-align: center;
+}
+
+#Logo{
+    width: 18%;
+}
+#NomBar{
+    width: 50%;
+}
+
+#NomPrin{
+    height: 38%;  
+}
+#TxtNom{
+    font-size: 250%;
+}
+
+#BarBusque{
+    display: flex;
+    flex-direction: row;
+    height: 62%;
+}
+#Bar{
+    width: 75%;
+    background-color: #664187;
+}
+#Lupa{
+    width: 25%;
+    background-color: #bbca63;
+}
+
+#Config{
+    background-color: brown;
+    width: 32%;
+}
+
+/* Estilo del Main */
+main{
+    background-color: red;
+}
+#Ubi{
+    background-color: #1b18c7;
+    text-align: center;
+}
+
+
+/*Estilo del footer*/
+footer{
+    background-color: orange;
+}
