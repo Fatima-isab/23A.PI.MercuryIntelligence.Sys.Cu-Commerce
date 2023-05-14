@@ -131,20 +131,20 @@ hr {
 
 }
 
-.pie-form {
+.cli-form {
     font-size: 90%;
     text-align: center;
     margin-top: 15px;
 }
 
-.pie-form a {
+.cli-form a {
     display: block;
     text-decoration: none;
     color: #4f4a47;
     margin-bottom: 3px;
 }
 
-.pie-form a:hover {
+.cli-form a:hover {
     color: #d0af83;
 }
 
