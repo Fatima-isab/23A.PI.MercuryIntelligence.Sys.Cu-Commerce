@@ -81,3 +81,75 @@ main{
 footer{
     background-color: orange;
 }
+
+/* Boton Publicar */
+#agregar, #publicar{
+  background-color: #fa8536; /* Color de fondo */
+  border: none; /* Quitamos el borde */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Añadimos un poco de padding para hacerlo más grande */
+  text-align: center; /* Centramos el texto */
+  text-decoration: none; /* Quitamos la decoración */
+  display: inline-block; /* Lo hacemos un elemento en línea */
+  font-size: 16px; /* Tamaño de letra */
+  margin: 4px 2px; /* Añadimos un poco de margen */
+  cursor: pointer; /* Cambiamos el cursor */
+  border-radius: 8px; /* Añadimos un borde redondeado */
+}
+
+/* Formulario */
+* Handle */
+::-webkit-scrollbar-thumb {
+    background: #262228;
+    border-radius: 5px;
+}
+
+.formulario {
+	max-width: 500px;
+	width:90%;
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+.formulario label {
+    text-align: left;
+	display: block;
+}
+
+.formulario .error {
+    border: 1px solid red;
+    color: black;
+	padding: 30px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+}
+.formulario .success {
+    border: 1px solid lawngreen;
+    color: black;
+	padding: 30px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="file"],
+.formulario textarea {
+	width: 100%;
+	margin-bottom: 30px;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom:1px solid rgb(230, 123, 37);
+}
+
+
+.formulario textarea {
+	min-height: 76px;
+	max-height: 150px; 
+	max-width: 100%;
+    min-width: 100%;
+}
+.limpiar{
+    background-color: #ffce00;
+    color: #262228;
+}
