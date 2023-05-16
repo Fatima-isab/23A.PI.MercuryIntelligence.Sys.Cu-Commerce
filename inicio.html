@@ -6,7 +6,7 @@ RUVALCABA BECERRA URIEL DE JESÚS
 HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
- <?php 
+<?php 
  require_once 'config/config.php';
  require_once 'config/functions.php';
  
@@ -46,78 +46,104 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 
 <body>
     <header>
-        <div id="CtnHead">
-            <div id="Logo">
-                <img src="assets/img/Logo.png" style="width: 42%;">
+        <div id="CtnHead" class="row shadow">
+
+            <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                <img src="assets/img/Logo.png">
                 <h5>El comercio entre nosotros</h5>
             </div>
 
-            <div id="NomBar">
+            <div id="NomBar" class="col-sm-8 col-md-8 col-lg-6 col-xl-6">
                 <div id="NomPrin">
-                    <h4 id="TxtNom">Cu - Commerce </h4>
+                    <h4>Cu - Commerce </h4>
                 </div>
                 <div id="BarBusque">
-                    <div id="Bar"><h4>barra de busqueda</h4></div>
-                    <div id="Lupa"><h4>Icono de lupa</h4></div>
+                    <nav class="navbar ">
+                        <div class="container-fluid ">
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2  " type="search" placeholder="Buscar..."
+                                    aria-label="Search" id="Buscador" autocomplete="off">
+                                <button class="btn btn-outline-success" type="submit">Ir</button>
+                            </form>
+                        </div>
+                    </nav>
                 </div>
-            </div>
+        </div>
 
-            <div id="Config">
-                <h4>Aqui los iconos de configuracion
-                    <button onclick="abrirModal()" id="agregar">Publicar</button>
+        <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
+            
+            <ul class="nav">
+                <li class="nav-item">
+                    <button onclick="abrirModal()" class="btn btn-primary id="agregar">Publicar</button>
 
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="cerrar">&times;</span>
-    <h2 style="color: orangered;">Agregar Producto</h2>
-    <p>Caracteristicas:</p>
-    <section>
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post" class="formulario" enctype="multipart/form-data">
-            <label for="Nombre">Nombre del producto: </label>
-            <input type="text" name="title" id="Nombre" required>
+                </li>
+                <li class="nav-item ">
+                    <button class="btn btn-primary ">Notificaciones</button>
+                </li>
+                <li class="nav-item ">
+                    <button  class="btn btn-primary">Sidebar</button>
+                </li>
+            </ul>
 
-            <label for="Categoria">Categoria: </label>
-            <select id="cate">
-                <option value="opcion1">Comida</option>
-                <option value="opcion2">Tecnologia</option>
-                <option value="opcion3">Educacion</option>
-              </select>
-              <br>
-              <br>
 
-            <label for="image">Selecciona imagen del producto</label>
-            <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
-            border: 3px;">
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="cerrar">&times;</span>
+                        <h2 style="color: orangered;">Agregar Producto</h2>
+                        <p>Caracteristicas:</p>
+                        <section>
+                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
+                                class="formulario" enctype="multipart/form-data">
+                                <label for="Nombre">Nombre del producto: </label>
+                                <input type="text" name="title" id="Nombre" required>
 
-            <label for="Descripcion">Descripcion: </label>
-            <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
-            style="border-radius: 8px;"></textarea>
+                                <label for="Categoria">Categoria: </label>
+                                <select id="cate">
+                                    <option value="opcion1">Comida</option>
+                                    <option value="opcion2">Tecnologia</option>
+                                    <option value="opcion3">Educacion</option>
+                                </select>
+                                <br>
+                                <br>
 
-            <label for="Precio">Precio: </label>
-            <input type="number" id="Precio" name="Precio" step="1" min="0" required><br>
-            <br>
-            <br>
+                                <label for="image">Selecciona imagen del producto</label>
+                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
+                                     border: 3px;">
 
-            <label for="caducidad">Caducidad: </label>
-            <input type="date" id="FCaducidad" name="FCaducidad">
+                                <label for="Descripcion">Descripcion: </label>
+                                <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
+                                    style="border-radius: 8px;"></textarea>
 
-            <?php if(isset($error)):?>
-                <p class="error"><?php echo $error;?></p>
-            <?php elseif(isset($msg)):?>
-                <p class="success"><?php echo $msg;?></p>
-            <?php endif;?>
+                                <label for="Precio">Precio: </label>
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" required><br>
+                                <br>
+                                <br>
 
-            <input type="submit" value="Publicar">
-            <input type="reset" value="Descartar">
-        </form>
-    </section>
-  </div>
-</div>
+                                <label for="caducidad">Caducidad: </label>
+                                <input type="date" id="FCaducidad" name="FCaducidad">
 
-                </h4>
-            </div>
+                                <?php if(isset($error)):?>
+                                <p class="error">
+                                    <?php echo $error;?>
+                                </p>
+                                <?php elseif(isset($msg)):?>
+                                <p class="success">
+                                    <?php echo $msg;?>
+                                </p>
+                                <?php endif;?>
+
+                                <input type="submit" value="Publicar">
+                                <input type="reset" value="Descartar">
+                            </form>
+                        </section>
+                    </div>
+                </div>
+
+            
+        </div>
         </div>
     </header>
+
     <main>
         <div id="Ubi">Aqui va la Ubicacion </div>
     </main>
@@ -134,7 +160,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 
 <head>
     <script src="assets/scripts/inicio.js"></script>
-  </head>
-  
+</head>
+
 
 </html>

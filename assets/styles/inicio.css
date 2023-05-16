@@ -27,59 +27,48 @@
 }
 
 /*Estilo del header*/
-#CtnHead{
+#CtnHead {
     display: flex;
     flex-direction: row;
-    height: 17vh;
     text-align: center;
 }
 
-#Logo{
-    width: 18%;
-}
-#NomBar{
-    width: 50%;
+#Logo h5 {
+    font-size: 2.2vh;
 }
 
-#NomPrin{
-    height: 38%;  
-}
-#TxtNom{
-    font-size: 250%;
+#Logo img {
+    width: 14vh;
 }
 
-#BarBusque{
+#NomPrin h4 {
+    font-size: 5vh;
+}
+
+#BarBusque {
     display: flex;
-    flex-direction: row;
-    height: 62%;
-}
-#Bar{
-    width: 75%;
-    background-color: #664187;
-}
-#Lupa{
-    width: 25%;
-    background-color: #bbca63;
+    justify-content: center;
 }
 
-#Config{
-    background-color: brown;
-    width: 32%;
+#Buscador {
+    text-align: center;
+}
+.btn{
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 /* Estilo del Main */
 main{
-    background-color: red;
+
 }
 #Ubi{
-    background-color: #1b18c7;
     text-align: center;
 }
 
 
 /*Estilo del footer*/
 footer{
-    background-color: orange;
 }
 
 /* Boton Publicar */
