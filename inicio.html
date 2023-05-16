@@ -6,6 +6,27 @@ RUVALCABA BECERRA URIEL DE JESÚS
 HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
+ <?php 
+ require_once 'config/config.php';
+ require_once 'config/functions.php';
+ 
+ $connect = connect($server,$port,$db,$user,$pass);
+ 
+ if(!$connect){
+     header('Location: index.php');
+ }
+ 
+ //Obtener el id del articulo seleccionado
+ if(isset($_GET['art'])){
+     $art_id = $_GET['art'];
+ 
+     //Obtener la informacion del articulo correspondiente a traves del id
+     $query = $connect->prepare("SELECT id, title, intro, description, image FROM article WHERE id = ?");
+     $query->execute([$art_id]);
+ 
+     $result = $query->fetch();
+ }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,26 +69,37 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="cerrar">&times;</span>
-    <h2>Agregar Producto</h2>
+    <h2 style="color: orangered;">Agregar Producto</h2>
     <p>Caracteristicas:</p>
     <section>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post" class="formulario" enctype="multipart/form-data">
-            <label for="title">Nombre del producto: </label>
-            <input type="text" name="title" id="title" required>
-            <label for="intro">Descripcion: </label>
-            <textarea name="intro" id="intro" placeholder="Descripcion del producto"></textarea>
+            <label for="Nombre">Nombre del producto: </label>
+            <input type="text" name="title" id="Nombre" required>
 
-            <label for="descrption">Precio: </label>
-            <input type="number" id="precio" name="precio" step="1" min="0" required><br>
+            <label for="Categoria">Categoria: </label>
+            <select id="cate">
+                <option value="opcion1">Comida</option>
+                <option value="opcion2">Tecnologia</option>
+                <option value="opcion3">Educacion</option>
+              </select>
+              <br>
+              <br>
 
             <label for="image">Selecciona imagen del producto</label>
-            <input type="file" name="image" id="image" required>
+            <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
+            border: 3px;">
 
-            <label for="categoria">Categoria: </label>
-            
+            <label for="Descripcion">Descripcion: </label>
+            <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
+            style="border-radius: 8px;"></textarea>
+
+            <label for="Precio">Precio: </label>
+            <input type="number" id="Precio" name="Precio" step="1" min="0" required><br>
+            <br>
+            <br>
 
             <label for="caducidad">Caducidad: </label>
-            <input type="date" id="fecha" name="fecha">
+            <input type="date" id="FCaducidad" name="FCaducidad">
 
             <?php if(isset($error)):?>
                 <p class="error"><?php echo $error;?></p>
