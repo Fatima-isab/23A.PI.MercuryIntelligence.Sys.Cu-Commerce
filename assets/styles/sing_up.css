@@ -1,0 +1,160 @@
+:root {
+    --Principal: #FE8744;
+    --Secundario: #FFEECD;
+    --gris: #A4A2A2;
+    --Negro: #000;
+    --Blanco: #F9F9F9;
+    --Oscuro: #;
+
+    --fsizeProductos: 22px;
+    --fsizeDescripcion: 26px;
+
+}
+
+/*Estilo general de la pagina */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+
+
+}
+
+body {
+    background-color: var(--Blanco);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+.trasera {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: var(--Blanco);
+}
+
+.tarsera div {
+    margin: 100px 40px;
+    color: var(--Negro);
+    transition: all 500ms;
+}
+
+.trasera div p,
+.trasera div button {
+    margin-top: 30px;
+}
+
+.trasera div h3 {
+    font-weight: 400;
+    font-size: 26px;
+
+}
+.trasera button{
+    padding: 10px 40px;
+    border: 2px solid var(--Principal);
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--);
+    outline: none;
+    transition: all 300ms;
+    border-radius: 100px;
+}
+
+.trasera button:hover{
+    background: var(--Principal);
+    color: var(--blanco);
+}
+
+.contenedor_registro{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -10%;
+    left: 10px;
+}
+.contenedor_registro form{
+    width: 100%;
+    padding: 80px 20px;
+    background-color: var(--Secundario);
+    position: absolute;
+    border-radius: 20px;
+}
+
+.contenedor_registro form h2{
+    font: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color:var(--Negro);
+}
+
+.contenedor_registro form input{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #FFF;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+}
+
+.contenedor_registro form button{
+    padding: 10px 40px;
+    border: 2px solid var(--Principal);
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--Negro);
+    outline: none;
+    transition: all 300ms;
+    border-radius: 100px;
+    margin-top: 30px;
+    
+}
+
+.contenedor_registro form button:hover{
+    background: var(--Principal);
+    color: var(--blanco);
+}
+
+.formulario_login{
+    opacity:1;
+    display:block;
+}
+.formulario_sing{
+    display: none;
+}
+
+@media screen and (max-width)
+
+
+
