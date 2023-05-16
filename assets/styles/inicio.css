@@ -153,3 +153,20 @@ footer{
     background-color: #ffce00;
     color: #262228;
 }
+
+/* Boton categorias */
+  /* Estilos para el botón desplegable */
+  #cate {
+    background-color: #b1ada8;
+    color: #000000;
+    border: none;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Estilos para las opciones del botón desplegable */
+#cate option {
+    background-color: #ffffff;
+    color: #333333;
+}
