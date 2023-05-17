@@ -43,13 +43,19 @@
 
 #NomPrin h4 {
     font-size: 5vh;
+    margin-left: 22%;
 }
 
 #BarBusque {
     display: flex;
     justify-content: center;
 }
-
+#BarBusque nav{
+    width: 100%;
+}
+#BarBusque nav form{
+    padding-left: 20%;
+}
 #Buscador {
     text-align: center;
 }
