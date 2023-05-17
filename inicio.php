@@ -6,26 +6,24 @@ RUVALCABA BECERRA URIEL DE JESÚS
 HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
-<?php 
- require_once 'config/config.php';
- require_once 'config/functions.php';
- 
- $connect = connect($server,$port,$db,$user,$pass);
- 
- if(!$connect){
-     header('Location: index.php');
- }
- 
- //Obtener el id del articulo seleccionado
- if(isset($_GET['art'])){
-     $art_id = $_GET['art'];
- 
-     //Obtener la informacion del articulo correspondiente a traves del id
-     $query = $connect->prepare("SELECT id, title, intro, description, image FROM article WHERE id = ?");
-     $query->execute([$art_id]);
- 
-     $result = $query->fetch();
- }
+ <?php
+// Configuración de la conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "12345";
+$dbname = "ecommerce";
+
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Error en la conexión: " . $conn->connect_error);
+}
+
+// Consulta para obtener los datos de la tabla
+$sql = "SELECT Nombre, Precio, Descripcion FROM productos";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -146,6 +144,27 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 
     <main>
         <div id="Ubi">Aqui va la Ubicacion </div>
+        <table>
+        <tr>
+            <th>Columna 1</th>
+            <th>Columna 2</th>
+            <th>Columna 3</th>
+        </tr>
+        <?php
+        // Iterar sobre los resultados de la consulta
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["Nombre"] . "</td>";
+                echo "<td>" . $row["Precio"] . "</td>";
+                echo "<td>" . $row["Descripcion"] . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='3'>No se encontraron datos</td></tr>";
+        }
+        ?>
+    </table>
     </main>
 
     <footer>
