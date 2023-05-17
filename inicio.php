@@ -6,25 +6,26 @@ RUVALCABA BECERRA URIEL DE JESÚS
 HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
-
- <?php
-// Configuración de la conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "12345";
-$dbname = "ecommerce";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Error en la conexión: " . $conn->connect_error);
-}
-
-// Consulta para obtener los datos de la tabla
-$sql = "SELECT Nombre, Precio, Descripcion FROM productos";
-$result = $conn->query($sql);
+<?php 
+ require_once 'config/config.php';
+ require_once 'config/functions.php';
+ 
+ $connect = connect($server,$port,$db,$user,$pass);
+ 
+ if(!$connect){
+     header('Location: index.php');
+ }
+ 
+ //Obtener el id del articulo seleccionado
+ if(isset($_GET['art'])){
+     $art_id = $_GET['art'];
+ 
+     //Obtener la informacion del articulo correspondiente a traves del id
+     $query = $connect->prepare("SELECT id, title, intro, description, image FROM article WHERE id = ?");
+     $query->execute([$art_id]);
+ 
+     $result = $query->fetch();
+ }
 ?>
 
 <!DOCTYPE html>
@@ -91,47 +92,52 @@ $result = $conn->query($sql);
                         <h2 style="color: orangered;">Agregar Producto</h2>
                         <p>Caracteristicas:</p>
                         <section>
-                            <form action="assets/config/guardar.php" method="POST" enctype="multipart/form-data" class="formulario">
+                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
+                                class="formulario" enctype="multipart/form-data">
                                 <label for="Nombre">Nombre del producto: </label>
-                                <input type="text" name="Nombre" id="Nombre" required>
-                    
+                                <input type="text" name="title" id="Nombre" required>
+
                                 <label for="Categoria">Categoria: </label>
-                                <select id="Categoria">
+                                <select id="cate">
                                     <option value="opcion1">Comida</option>
                                     <option value="opcion2">Tecnologia</option>
                                     <option value="opcion3">Educacion</option>
-                                  </select>
-                                  <br>
-                                  <br>
-                    
+                                </select>
+                                <br>
+                                <br>
+
                                 <label for="image">Selecciona imagen del producto</label>
-                                <input type="file" name="Ruta_Foto" id="Ruta_Foto" required style="border-radius: 8px;
-                                border: 3px;">
-                    
+                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
+                                     border: 3px;">
+
                                 <label for="Descripcion">Descripcion: </label>
-                                <textarea name="Descripcion" id="Descripcion" placeholder="Descripcion del producto"
-                                style="border-radius: 8px;"></textarea>
-                    
+                                <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
+                                    style="border-radius: 8px;"></textarea>
+
                                 <label for="Precio">Precio: </label>
                                 <input type="number" id="Precio" name="Precio" step="1" min="0" required><br>
                                 <br>
                                 <br>
-                    
+
                                 <label for="caducidad">Caducidad: </label>
                                 <input type="date" id="FCaducidad" name="FCaducidad">
-                    
-                    
+
+                                <?php if(isset($error)):?>
+                                <p class="error">
+                                    <?php echo $error;?>
+                                </p>
+                                <?php elseif(isset($msg)):?>
+                                <p class="success">
+                                    <?php echo $msg;?>
+                                </p>
+                                <?php endif;?>
+
                                 <input type="submit" value="Publicar">
                                 <input type="reset" value="Descartar">
                             </form>
-                    
                         </section>
                     </div>
                 </div>
-
-                <section>
-                    
-                </section>
 
             
         </div>
@@ -140,27 +146,6 @@ $result = $conn->query($sql);
 
     <main>
         <div id="Ubi">Aqui va la Ubicacion </div>
-        <table>
-        <tr>
-            <th>Columna 1</th>
-            <th>Columna 2</th>
-            <th>Columna 3</th>
-        </tr>
-        <?php
-        // Iterar sobre los resultados de la consulta
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["Nombre"] . "</td>";
-                echo "<td>" . $row["Precio"] . "</td>";
-                echo "<td>" . $row["Descripcion"] . "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>No se encontraron datos</td></tr>";
-        }
-        ?>
-    </table>
     </main>
 
     <footer>
