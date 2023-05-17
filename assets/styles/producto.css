@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    font-family: sans-serif;
+}
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+footer {
+    width: 100%;
+    margin-top: 20px;
+
+    background-color: #707070;
+    color: white;
+    font-weight: bold;
+    font-variant: small-caps;
+
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    position: fixed;
+    bottom:0;
+}
+h1 > span{
+    color:#00ADB5;
+}
+main{
+    width: 100%;
+    text-align: center;
+}
+section{
+    width: 90%;
+    margin-top: 20px;
+    display: inline-block;
+}
+.articulo{
+    margin: 0 5%;
+    text-align: left;
+    
+    background-color: #f2f2f2;    
+    
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px gray;
+}
+.texto{
+    padding: 15px;
+}
+.texto h2{
+    border-bottom: 5px solid #00ADB5;
+    padding-bottom: 15px;
+    color: #00ADB5;
+}
+.texto p, .texto h2{
+    margin-bottom: 20px;
+}
+.imagen{
+    height: 35vh;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.imagen img{
+    width:100%;
+}
+.clear{
+    height:60px;
+}
+
+@media screen and (max-width: 720px) and (min-width:480px) {
+    .articulo {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .articulo {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    section {
+        width: 90%;
+    }
+}
+
+/* Personalizar Scroll - No soportado: Firefox, IE, Edge */
+/* Width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f2f2f2;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #262228;
+    border-radius: 5px;
+}
+
+.formulario {
+	max-width: 500px;
+	width:90%;
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+.formulario label {
+    text-align: left;
+	display: block;
+}
+
+.formulario .error {
+    border: 1px solid red;
+    color: black;
+	padding: 30px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+}
+.formulario .success {
+    border: 1px solid lawngreen;
+    color: black;
+	padding: 30px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="file"],
+.formulario textarea {
+	width: 100%;
+	margin-bottom: 30px;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom:1px solid rgba(0, 173, 181, 1);
+}
+
+.formulario textarea {
+	min-height: 76px;
+	max-height: 150px; 
+	max-width: 100%;
+    min-width: 100%;
+}
+.limpiar{
+    background-color: #ffce00;
+    color: #262228;
+}

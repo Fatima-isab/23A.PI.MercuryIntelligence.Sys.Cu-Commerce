@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener los datos de la tabla
-$sql = "SELECT Nombre, Precio, Descripcion FROM productos";
+$sql = "SELECT IdProductos, Nombre, Ruta_Foto, Precio, Descripcion FROM productos";
 $result = $conn->query($sql);
 ?>
 
@@ -144,27 +144,21 @@ $result = $conn->query($sql);
 
     <main>
         <div id="Ubi">Aqui va la Ubicacion </div>
-        <table>
-        <tr>
-            <th>Columna 1</th>
-            <th>Columna 2</th>
-            <th>Columna 3</th>
-        </tr>
-        <?php
-        // Iterar sobre los resultados de la consulta
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["Nombre"] . "</td>";
-                echo "<td>" . $row["Precio"] . "</td>";
-                echo "<td>" . $row["Descripcion"] . "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>No se encontraron datos</td></tr>";
-        }
-        ?>
-    </table>
+        <section>
+            <?php foreach($result as $article): ?>
+            <a href="producto.php?art=<?php echo $article['IdProductos']?>">
+                <div class="articulo">
+                    <div class="imagen">
+                        <img src="<?php echo $article['Ruta_Foto']?>" alt="">
+                    </div>
+                    <div class="texto">
+                        <h3><?php echo $article['Nombre']?></h3>
+                        <p><?php echo $article['intro']?></p>
+                    </div>
+                </div>
+            </a>
+            <?php endforeach;?>
+        </section>
     </main>
 
     <footer>
