@@ -15,7 +15,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-Commerce</title>
-    <link rel="stylesheet" href="./assets/styles/sing_up.css">
+    <link rel="stylesheet" href="./assets/styles/sign_up.css">
 </head>
 
 <body>
@@ -39,10 +39,10 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 
             <div class="contenedor_registro">
 
-                <form action="" class="formulario_login">
+                <form action="php/login_usuario_be.php" method="POST" class="formulario_login">
                     <h2>Iniciar sesión</h2>
-                    <input type="text" placeholder="Correo electronico">
-                    <input type="password" placeholder="Contraseña">
+                    <input type="text" placeholder="Correo electronico" name="correo" >
+                    <input type="password" placeholder="Contraseña" name="contrasena"> 
                     <button>Iniciar</button>
                 </form>
 
