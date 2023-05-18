@@ -1,17 +1,5 @@
-/* Variables de la pagina*/
-:root {
-    --Principal: #FE8744;
-    --Secundario: #FFEECD;
-    --gris: #A4A2A2;
-    --Negro: #000;
-    --Blanco: #F9F9F9;
-    --Oscuro: #;
-    
-    --fsizeProductos: 22px;
-    --fsizeDescripcion: 26px;
-
-}
-
+/* Importacion de las variables colores */
+@import "colors.css";
 /*Estilo general de la pagina */
 
 *{
@@ -22,8 +10,6 @@
     -o-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
-    
-   
 }
 
 /*Estilo del header*/
@@ -79,7 +65,7 @@ footer{
 
 /* Boton Publicar */
 #agregar, #publicar{
-  background-color: #fa8536; /* Color de fondo */
+  background-color: var(--Principal); /* Color de fondo */
   border: none; /* Quitamos el borde */
   color: white; /* Color del texto */
   padding: 10px 20px; /* Añadimos un poco de padding para hacerlo más grande */

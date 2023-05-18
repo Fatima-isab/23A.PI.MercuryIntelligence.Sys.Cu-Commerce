@@ -1,0 +1,13 @@
+/* Variables de la pagina*/
+:root {
+    --Principal: #FE8744;
+    --Secundario: #FFEECD;
+    --gris: #A4A2A2;
+    --Negro: #000;
+    --Blanco: #F9F9F9;
+    --Oscuro: #;
+    
+    --fsizeProductos: 22px;
+    --fsizeDescripcion: 26px;
+
+}

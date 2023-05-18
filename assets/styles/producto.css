@@ -1,3 +1,6 @@
+/* Importacion de las variables colores */
+@import "colors.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +31,7 @@ footer {
     bottom:0;
 }
 h1 > span{
-    color:#00ADB5;
+    color: var(--Principal);
 }
 main{
     width: 100%;
@@ -52,9 +55,9 @@ section{
     padding: 15px;
 }
 .texto h2{
-    border-bottom: 5px solid #00ADB5;
+    border-bottom: 5px solid var(--Principal);
     padding-bottom: 15px;
-    color: #00ADB5;
+    color: var(--Principal);
 }
 .texto p, .texto h2{
     margin-bottom: 20px;
@@ -150,7 +153,7 @@ section{
     padding: 10px;
     background: none;
     border: none;
-    border-bottom:1px solid rgba(0, 173, 181, 1);
+    border-bottom:1px solid var(--Principal);
 }
 
 .formulario textarea {
