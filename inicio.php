@@ -85,16 +85,24 @@ $result = $conn->query($sql);
 
 
                 <div id="modal" class="modal">
-                    <div class="modal-content">
+                    <div class="modal-content" style="">
                         <span class="cerrar">&times;</span>
-                        <h2 style="color: orangered;">Agregar Producto</h2>
-                        <p>Caracteristicas:</p>
+                        <h2 style="">Publica tu Producto</h2>
                         <section>
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
                                 class="formulario" enctype="multipart/form-data">
-                                <label for="Nombre">Nombre del producto: </label>
-                                <input type="text" name="title" id="Nombre" required>
 
+                                <label for="image">Selecciona imagen del producto</label>
+                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
+                                     border: 3px;">
+                                <div class="parte1">
+                     
+                                <label for="Nombre"></label>
+                                <br>
+                                <input type="text" name="title" id="Nombre" required placeholder="Nombre del Producto">
+
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
+                                </div>
                                 <label for="Categoria">Categoria: </label>
                                 <select id="cate">
                                     <option value="opcion1">Comida</option>
@@ -104,16 +112,12 @@ $result = $conn->query($sql);
                                 <br>
                                 <br>
 
-                                <label for="image">Selecciona imagen del producto</label>
-                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
-                                     border: 3px;">
-
                                 <label for="Descripcion">Descripcion: </label>
                                 <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
                                     style="border-radius: 8px;"></textarea>
 
                                 <label for="Precio">Precio: </label>
-                                <input type="number" id="Precio" name="Precio" step="1" min="0" required><br>
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
                                 <br>
                                 <br>
 
@@ -132,6 +136,9 @@ $result = $conn->query($sql);
 
                                 <input type="submit" value="Publicar">
                                 <input type="reset" value="Descartar">
+                                <br>
+                                <br>
+                                <label for=""></label>
                             </form>
                         </section>
                     </div>
@@ -144,17 +151,18 @@ $result = $conn->query($sql);
 
     <main>
         <div id="Ubi">Aqui va la Ubicacion </div>
-        <section>
+        <section class="container">
             <?php foreach($result as $article): ?>
-            <a href="producto.php?art=<?php echo $article['IdProductos']?>">
-                <div class="articulo">
+            <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">
+                <div class="producto">
                     <div class="imagen">
-                        <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="">
+                        <br>
+                        <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
-                    <div class="texto">
-                        <h3><?php echo $article['Nombre']?></h3>
-                        <p><?php echo $article['intro']?></p>
-                    </div>
+                    <span class="texto">
+                        <h4><?php echo $article['Nombre']?></h4>
+                        <h4><?php echo "$".$article['Precio']?></h4>
+            </span>
                 </div>
             </a>
             <?php endforeach;?>

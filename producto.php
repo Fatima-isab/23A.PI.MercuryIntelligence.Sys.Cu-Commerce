@@ -45,7 +45,7 @@ if ($producto) {
         <section>
             <div class="articulo">
                 <div class="imagen">
-                    <img src="<?php echo $producto['Ruta_Foto']?>" alt="">
+                    <img src="assets/<?php echo $producto['Ruta_Foto']?>" alt="">
                 </div>
                 <div class="texto">
                     <h2><?php echo $producto['Nombre']?></h2>

@@ -100,10 +100,11 @@ footer{
 }
 
 .formulario {
-	max-width: 500px;
-	width:90%;
+    max-width: 800px;
+	width:800px;
 	margin: auto;
 	margin-bottom: 30px;
+    background-color: #e4e4e4;
 }
 
 .formulario label {
@@ -111,39 +112,7 @@ footer{
 	display: block;
 }
 
-.formulario .error {
-    border: 1px solid red;
-    color: black;
-	padding: 30px;
-	margin-bottom: 30px;
-	border-radius: 5px;
-}
-.formulario .success {
-    border: 1px solid lawngreen;
-    color: black;
-	padding: 30px;
-	margin-bottom: 30px;
-	border-radius: 5px;
-}
 
-.formulario input[type="text"],
-.formulario input[type="file"],
-.formulario textarea {
-	width: 100%;
-	margin-bottom: 30px;
-    padding: 10px;
-    background: none;
-    border: none;
-    border-bottom:1px solid rgb(230, 123, 37);
-}
-
-
-.formulario textarea {
-	min-height: 76px;
-	max-height: 150px; 
-	max-width: 100%;
-    min-width: 100%;
-}
 .limpiar{
     background-color: #ffce00;
     color: #262228;
@@ -166,90 +135,84 @@ footer{
     color: #333333;
 }
 
-h1 > span{
-    color:#00ADB5;
-}
-main{
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
     width: 100%;
-    text-align: center;
-}
-section{
-    width: 90%;
-    margin-top: 20px;
-    display: inline-block;
-}
-.articulo{
-    margin: 0 5%;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .modal-content {
+    background-color: var(--gris);
+    margin: 10% auto;
+    padding: 20px;
+    width:800px;
+    max-width: 900px;
+    animation: fade-in 0.3s;
+  }
+
+.producto{
+    width: 100%;
     text-align: left;
+    border-radius: 8px;
+    background-color: var(--Secundario);
     
-    background-color: #f2f2f2;    
-    
-    border-radius: 5px;
-    box-shadow: 0px 0px 15px gray;
 }
-.texto{
-    padding: 15px;
+
+.producto:hover{
+    box-shadow: 0px 0px 15px rgb(243, 114, 9);
 }
-.texto h2{
-    border-bottom: 5px solid #00ADB5;
-    padding-bottom: 15px;
-    color: #00ADB5;
+
+.container{
+    width: 100%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 28%);
+    gap: 5%;
 }
-.texto p, .texto h2{
-    margin-bottom: 20px;
+
+.nombre{
+    color: var(--Principal);
+    text-align: center;
+    border-inline: none;
+    text-decoration: none;
+
 }
+
 .imagen{
-    height: 35vh;
-    overflow: hidden;
-    margin-bottom: 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-.imagen img{
-    width:100%;
-}
-.clear{
-    height:60px;
+text-align: center;
 }
 
-@media screen and (max-width: 720px) and (min-width:480px) {
-    .articulo {
-        width: 100%;
-        margin: 0;
-        margin-bottom: 15px;
-    }
+.texto{
+    text-align: center;
+    color: #000;
+    font-family: sans-serif;
+    font-size: 20px;
 }
 
-@media screen and (max-width: 480px) {
-    .articulo {
-        width: 100%;
-        margin: 0;
-        margin-bottom: 15px;
-    }
-
-    section {
-        width: 90%;
-    }
+.container2{
+    text-decoration: none;
 }
 
-/* Personalizar Scroll - No soportado: Firefox, IE, Edge */
-/* Width */
-::-webkit-scrollbar {
-    width: 10px;
+.formulario input[type="file"]{
+    background-color: var(--Blanco);
+    width: 90%;
+    height: 150px;
+    border-radius: 7px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f2f2f2;
-    border-radius: 5px;
+.parrte1{
+    grid-template-rows: repeat(2, 90%);
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #262228;
-    border-radius: 5px;
+.formulario input[type="text"]{
+    background-color: var(--Blanco);
+    border-radius: 7px;
 }
+
+
+
