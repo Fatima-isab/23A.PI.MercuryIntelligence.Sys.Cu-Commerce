@@ -73,11 +73,11 @@ $result = $conn->query($sql);
             
             <ul class="nav">
                 <li class="nav-item mt-5">
-                    <button onclick="abrirModal()" class="btn btn-primary id="agregar">Publicar</button>
+                    <button onclick="abrirModal()" class="btn btn-outline-secondary id="agregar">Publicar</button>
 
                 </li>
                 <li class="nav-item mt-5">
-                    <button class="btn btn-primary ">Notificaciones</button>
+                    <button class="btn btn-outline-secondary ">Notificaciones</button>
                 </li>
                 <li class="nav-item mt-5">
                      <!-- SideBar -->

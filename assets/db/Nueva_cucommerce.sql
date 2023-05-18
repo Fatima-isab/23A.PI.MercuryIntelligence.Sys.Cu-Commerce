@@ -10,20 +10,12 @@ CREATE TABLE personas (
   IdPersonas INT NOT NULL AUTO_INCREMENT COMMENT 'llave primaria de la tabla personas',
   Nombres VARCHAR(45) NOT NULL COMMENT 'Nombre(s) de la persona a registrar',
   pasword VARCHAR(45) DEFAULT NULL COMMENT 'Segundo apellido de la persona',
+   correo VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
+    UNIQUE (correo),
   PRIMARY KEY (IdPersonas)
 ) COMMENT = 'Tabla para el almacenamiento de los datos generales de las personas que se agregarán al sistema.';
 ALTER TABLE personas AUTO_INCREMENT = 1;
 
-DROP TABLE IF EXISTS correos;
-CREATE TABLE correos (
-  IdCorreos INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, autoincrementable, ',
-  IdPersona INT NOT NULL COMMENT 'Clave foránea para relacionar los correos con las personas',
-  correo VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
-  PRIMARY KEY (IdCorreos),
-  UNIQUE (correo),
-   FOREIGN KEY (IdPersona) REFERENCES personas(IdPersonas) ON UPDATE CASCADE
-) COMMENT = 'Tabla para el almacenamiento de los correos correspondientes a cada persona.';
-ALTER TABLE correos AUTO_INCREMENT = 1;
 
 DROP TABLE IF EXISTS ubicacion;
 CREATE TABLE ubicacion (
@@ -56,14 +48,6 @@ CREATE TABLE clientes (
 ) COMMENT = 'Tabla para el almacenamiento de los clientes en la aplicacion';
 ALTER TABLE clientes AUTO_INCREMENT = 1;
 
-DROP TABLE IF EXISTS categorias;
-CREATE TABLE categorias (
-  IdCategorias INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, autoincrementable, ',
-  Categoria VARCHAR(50) NOT NULL COMMENT 'Categoria en la que clasifica su producto',
-  PRIMARY KEY (IdCategorias),
-  UNIQUE (categoria)
-) COMMENT = 'Tabla para el almacenamiento de las categorias de los productos';
-ALTER TABLE categorias AUTO_INCREMENT = 1;
 
 DROP TABLE IF EXISTS productos;
 CREATE TABLE productos (
@@ -74,6 +58,7 @@ CREATE TABLE productos (
   Ruta_Foto VARCHAR(200) NOT NULL COMMENT 'Ruta de la foto del producto',
   Descripcion VARCHAR(200) NOT NULL COMMENT 'Descripcion de lo que es el producto',
   Precio  INT(10) NOT NULL  COMMENT 'Precio que se quiere vender cierto producto ',
+  Categoria VARCHAR(50) NOT NULL COMMENT 'Categoria en la que clasifica su producto',
   FCaducidad DATE COMMENT 'registrar la fecha en la que se caduca el producto en caso de ser necesario',
   Inventario  INT(10) NOT NULL  COMMENT 'Precio que se quiere vender cierto producto ',
   PRIMARY KEY (IdProductos),
