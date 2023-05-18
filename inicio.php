@@ -149,7 +149,7 @@ $result = $conn->query($sql);
             <a href="producto.php?art=<?php echo $article['IdProductos']?>">
                 <div class="articulo">
                     <div class="imagen">
-                        <img src="<?php echo $article['Ruta_Foto']?>" alt="">
+                        <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="">
                     </div>
                     <div class="texto">
                         <h3><?php echo $article['Nombre']?></h3>
