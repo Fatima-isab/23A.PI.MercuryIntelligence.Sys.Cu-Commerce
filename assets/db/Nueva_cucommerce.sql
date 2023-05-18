@@ -88,7 +88,7 @@ CREATE TABLE folios (
   IdProducto INT NOT NULL COMMENT 'clave forenea de la tabla vendedores',
  IdCliente INT NOT NULL COMMENT 'clave foranea de la tabla clientes',
  IdVendedor INT NOT NULL COMMENT 'clave forenea de la tabla vendedores',
-   Mensaje VARCHAR(100) NOT NULL COMMENT 'Ruta de la foto de perfil que desee utilizar',
+   Mensaje VARCHAR(1024) NOT NULL DEFAULT '¡Querido usuario, se ha generado un encargo con éxito! ' COMMENT 'Notificación generada desde la base de datos',
    PRIMARY KEY (IdFolios),
    FOREIGN KEY (IdCliente) REFERENCES clientes(IdClientes) ON UPDATE CASCADE,
    FOREIGN KEY (IdProducto) REFERENCES productos(IdProductos) ON UPDATE CASCADE,
