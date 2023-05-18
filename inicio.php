@@ -57,30 +57,56 @@ $result = $conn->query($sql);
                     <h4>Cu - Commerce </h4>
                 </div>
                 <div id="BarBusque">
-                    <nav class="navbar ">
+                    <nav class="navbar  ">
                         <div class="container-fluid ">
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2  " type="search" placeholder="Buscar..."
+                            <form class="d-flex w-100 " role="search">
+                                <input class="form-control me-2" type="search" placeholder="Buscar..."
                                     aria-label="Search" id="Buscador" autocomplete="off">
                                 <button class="btn btn-outline-success" type="submit">Ir</button>
                             </form>
                         </div>
                     </nav>
                 </div>
-        </div>
+            </div>
 
         <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
             
             <ul class="nav">
-                <li class="nav-item">
+                <li class="nav-item mt-5">
                     <button onclick="abrirModal()" class="btn btn-primary id="agregar">Publicar</button>
 
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item mt-5">
                     <button class="btn btn-primary ">Notificaciones</button>
                 </li>
-                <li class="nav-item ">
-                    <button  class="btn btn-primary">Sidebar</button>
+                <li class="nav-item mt-5">
+                     <!-- SideBar -->
+                     <nav class="navbar">
+                            <div class="container-fluid">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" aria-current="page">Categorias</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Comida</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Ropa</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Utiles</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+         <!-- fin de la side bar-->
                 </li>
             </ul>
 
