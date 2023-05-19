@@ -10,9 +10,9 @@ NAVARRO GUTIÉRREZ ESTHEFANI
   //session_destroy();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "root";
-$password = "12345";
-$dbname = "ecommerce";
+$username = "cris";
+$password = "adminroot";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -46,12 +46,12 @@ $result = $conn->query($sql);
 <body>
     <header>
         <div id="CtnHead" class="row shadow">
-
-            <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2">
+            <!-- aqui va el logo de la plataforma -->
+            <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2"> 
                 <img src="assets/img/Logo.png">
                 <h5>El comercio entre nosotros</h5>
             </div>
-
+            <!-- Barra de navegación con el titulo en grande, con la barra de navegación y el botón de inicio de sesión -->
             <div id="NomBar" class="col-sm-8 col-md-8 col-lg-6 col-xl-6">
                 <div id="NomPrin">
                     <h4>Cu - Commerce </h4>
@@ -68,12 +68,14 @@ $result = $conn->query($sql);
                     </nav>
                 </div>
             </div>
-
+        <!-- botones adicionales como iniciar sesión, notificaciones, etc -->
         <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
             
             <ul class="nav">
                 <li class="nav-item mt-5">
-                    <button class="btn btn-outline-secondary ">Iniciar sesión</button>
+                    <a href="log_in.php">
+                        <button class="btn btn-outline-secondary">Iniciar sesión</button>
+                    </a>
                 </li>
                 <li class="nav-item mt-5">
                      
@@ -142,19 +144,21 @@ $result = $conn->query($sql);
             
         </div>
         </div>
-    </header>
+    </header><!-- Fin del contenedor Header -->
 
     <main>
         <div id="Ubi">Aqui va la Ubicacion </div>
+        <!-- "container" contendrá todas las publicaciones dentro -->
         <section class="container">
             <?php foreach($result as $article): ?>
+            <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
             <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
                         <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
-                    <span class="texto">
+                    <span class="texto"> <!-- Se muestra el nombre del producto y su precio dentro del div, del producto -->
                         <h4><?php echo $article['Nombre']?></h4>
                         <h4><?php echo "$".$article['Precio']?></h4>
             </span>
