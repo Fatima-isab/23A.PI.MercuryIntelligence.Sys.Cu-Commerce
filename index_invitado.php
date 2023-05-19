@@ -150,17 +150,17 @@ $result = $conn->query($sql);
         <div id="Ubi">Aqui va la Ubicacion </div>
         <!-- "container" contendrá todas las publicaciones dentro -->
         <section class="container">
-            <?php foreach($result as $article): ?>
+            <?php foreach($result as $productos): ?>
             <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
-            <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">
+            <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
-                        <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
+                        <img src="<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
                     <span class="texto"> <!-- Se muestra el nombre del producto y su precio dentro del div, del producto -->
-                        <h4><?php echo $article['Nombre']?></h4>
-                        <h4><?php echo "$".$article['Precio']?></h4>
+                        <h4><?php echo $productos['Nombre']?></h4>
+                        <h4><?php echo "$".$productos['Precio']?></h4>
             </span>
                 </div>
             </a>
