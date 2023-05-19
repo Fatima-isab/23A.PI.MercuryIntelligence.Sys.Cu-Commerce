@@ -1,4 +1,3 @@
-
 <!-- Equipo 6: Mercury Intelligence
     INTEGRANTES:
 ROMÁN LÓPEZ FÁTIMA ISABEL
@@ -8,14 +7,6 @@ HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
  <?php
- session_start();
-
- if(!isset($_SESSION['usuario'])){
-
-    header("location: index_invitado.php");
-    session_destroy();
-    die();
- }
   //session_destroy();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
@@ -82,44 +73,12 @@ $result = $conn->query($sql);
             
             <ul class="nav">
                 <li class="nav-item mt-5">
-                    <button onclick="abrirModal()" class="btn btn-outline-secondary id="agregar">Publicar</button>
-
+                    <button class="btn btn-outline-secondary ">Iniciar sesión</button>
                 </li>
                 <li class="nav-item mt-5">
-                    <button class="btn btn-outline-secondary ">Notificaciones</button>
-                </li>
-                <li class="nav-item mt-5">
-                     <!-- SideBar -->
-                     <nav class="navbar">
-                            <div class="container-fluid">
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarNav">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" aria-current="page">Categorias</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Comida</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Ropa</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Utiles</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-         <!-- fin de la side bar-->
+                     
                 </li>
             </ul>
-
-
                 <div id="modal" class="modal">
                     <div class="modal-content" style="">
                         <span class="cerrar">&times;</span>

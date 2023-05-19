@@ -11,7 +11,7 @@ $query = "INSERT INTO personas(Nombres, correo, contrasena)
 VALUES('$Nombres', '$correo', '$contrasena')"; 
  
 //verificar que no se repitan el correo
-$verificar_correo = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo' ");
+$verificar_correo = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo'");
 
 if(mysqli_num_rows($verificar_correo) > 0){
     echo'

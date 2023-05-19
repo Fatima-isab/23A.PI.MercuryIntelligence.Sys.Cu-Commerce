@@ -6,7 +6,12 @@ RUVALCABA BECERRA URIEL DE JESÚS
 HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
-
+<?php
+session_start();
+if(isset($_SESSION['usuario'])){
+    header("location: inicio.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
