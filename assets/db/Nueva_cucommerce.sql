@@ -52,7 +52,6 @@ ALTER TABLE clientes AUTO_INCREMENT = 1;
 DROP TABLE IF EXISTS productos;
 CREATE TABLE productos (
   IdProductos INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, autoincrementable, ',
-  IdCategoria INT NOT NULL  COMMENT 'Clave forenea de la tabla categorias ',
   IdVendedor INT NOT NULL  COMMENT 'Clave forenea de la tabla categorias ',
   Nombre VARCHAR(45) NOT NULL COMMENT 'Nombre del producto que se va a vender',
   Ruta_Foto VARCHAR(200) NOT NULL COMMENT 'Ruta de la foto del producto',

@@ -20,8 +20,8 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
-$dbname = "ecommerce";
+$password = "";
+$dbname = "e_commerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -32,7 +32,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener los datos de la tabla
-$sql = "SELECT IdProductos, Nombre, Ruta_Foto, Precio, Descripcion FROM productos";
+$sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
 $result = $conn->query($sql);
 ?>
 
@@ -125,40 +125,42 @@ $result = $conn->query($sql);
                         <span class="cerrar">&times;</span>
                         <h2 style="">Publica tu Producto</h2>
                         <section>
-                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
+                            <form action="assets/config/guardar.php" method="post"
                                 class="formulario" enctype="multipart/form-data">
 
                                 <label for="image">Selecciona imagen del producto</label>
-                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
+                                <input type="file" name="Ruta_Foto" id="Ruta_Imagen" required style="border-radius: 8px;
                                      border: 3px;">
-                                <div class="parte1">
+                    
                      
-                                <label for="Nombre"></label>
+                        
                                 <br>
-                                <input type="text" name="title" id="Nombre" required placeholder="Nombre del Producto">
+                                <input type="text" name="Nombre" id="Nombre" required placeholder="Nombre del Producto">
 
-                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
-                                </div>
-                                <label for="Categoria">Categoria: </label>
-                                <select id="cate">
-                                    <option value="opcion1">Comida</option>
-                                    <option value="opcion2">Tecnologia</option>
-                                    <option value="opcion3">Educacion</option>
-                                </select>
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" placeholder="Precio" required>
+
                                 <br>
                                 <br>
 
-                                <label for="Descripcion">Descripcion: </label>
-                                <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
+                                <textarea name="Descripcion" id="Descripcion" placeholder="Descripcion del producto"
                                     style="border-radius: 8px;"></textarea>
 
-                                <label for="Precio">Precio: </label>
-                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
-                                <br>
+                                <p>Fecha de Caducidad: </p>
+                                <input type="date" id="FCaducidad" name="FCaducidad">
                                 <br>
 
-                                <label for="caducidad">Caducidad: </label>
-                                <input type="date" id="FCaducidad" name="FCaducidad">
+                                <p>Categoria: </p>
+                                <select id="Categoria">
+                                    <option value="opcion1">Comida</option>
+                                    <option value="opcion2">Utiles</option>
+                                    <option value="opcion3">Ropa</option>
+                                </select>
+                                <br>
+
+                                <p>Piezas Disponibles</p>
+                                <input type="number" id="Inventario" name="Inventario" step="1" min="0" placeholder="Piezas" required>
+
+
 
                                 <?php if(isset($error)):?>
                                 <p class="error">
@@ -169,7 +171,7 @@ $result = $conn->query($sql);
                                     <?php echo $msg;?>
                                 </p>
                                 <?php endif;?>
-
+                                <br>
                                 <input type="submit" value="Publicar">
                                 <input type="reset" value="Descartar">
                                 <br>
