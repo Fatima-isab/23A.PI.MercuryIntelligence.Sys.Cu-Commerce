@@ -2,16 +2,16 @@
 
 include 'conexion_sign.php';
 
-$nombre_completo = $_POST['nombre_completo'];
+$Nombres = $_POST['Nombres'];
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
-$contrasena_enc = hash('sha512', $contrasena);  
 
-$query = "INSERT INTO persona(Nombres, correo, contrasena) 
-VALUES('$nombre_completo', '$correo', '$contrasena')"; 
+
+$query = "INSERT INTO personas(Nombres, correo, contrasena) 
+VALUES('$Nombres', '$correo', '$contrasena')"; 
  
 //verificar que no se repitan el correo
-$verificar_correo = mysqli_query($conexion, "SELECT * FROM persona WHERE correo='$correo' ");
+$verificar_correo = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo' ");
 
 if(mysqli_num_rows($verificar_correo) > 0){
     echo'

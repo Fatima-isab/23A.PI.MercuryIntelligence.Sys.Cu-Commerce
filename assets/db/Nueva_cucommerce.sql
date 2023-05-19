@@ -9,9 +9,9 @@ DROP TABLE IF EXISTS personas;
 CREATE TABLE personas (
   IdPersonas INT NOT NULL AUTO_INCREMENT COMMENT 'llave primaria de la tabla personas',
   Nombres VARCHAR(45) NOT NULL COMMENT 'Nombre(s) de la persona a registrar',
-  pasword VARCHAR(45) DEFAULT NULL COMMENT 'Segundo apellido de la persona',
-   correo VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
-    UNIQUE (correo),
+  correo VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
+  contrasena VARCHAR(45) DEFAULT NULL COMMENT 'Contrase;a de la persona',
+  UNIQUE (correo),
   PRIMARY KEY (IdPersonas)
 ) COMMENT = 'Tabla para el almacenamiento de los datos generales de las personas que se agregarán al sistema.';
 ALTER TABLE personas AUTO_INCREMENT = 1;
@@ -62,8 +62,7 @@ CREATE TABLE productos (
   FCaducidad DATE COMMENT 'registrar la fecha en la que se caduca el producto en caso de ser necesario',
   Inventario  INT(10) NOT NULL  COMMENT 'Precio que se quiere vender cierto producto ',
   PRIMARY KEY (IdProductos),
-  FOREIGN KEY(IdVendedor) REFERENCES vendedores(IdVendedores) ON UPDATE CASCADE,
-  FOREIGN KEY(IdCategoria) REFERENCES categorias(IdCategorias) ON UPDATE CASCADE
+  FOREIGN KEY(IdVendedor) REFERENCES vendedores(IdVendedores) ON UPDATE CASCADE
 ) COMMENT = 'Tabla para el almacenamiento de todos los productos que se venderan';
 ALTER TABLE productos AUTO_INCREMENT = 1;
 
