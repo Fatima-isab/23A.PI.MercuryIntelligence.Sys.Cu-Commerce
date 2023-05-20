@@ -188,7 +188,6 @@ $result = $conn->query($sql);
     </header>
 
     <main>
-        <div id="Ubi">Aqui va la Ubicacion </div>
         <section class="container">
             <?php foreach($result as $article): ?>
             <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">

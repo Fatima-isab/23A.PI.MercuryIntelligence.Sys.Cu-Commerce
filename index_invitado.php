@@ -147,7 +147,6 @@ $result = $conn->query($sql);
     </header><!-- Fin del contenedor Header -->
 
     <main>
-        <div id="Ubi">Aqui va la Ubicacion </div>
         <!-- "container" contendrá todas las publicaciones dentro -->
         <section class="container">
             <?php foreach($result as $productos): ?>
