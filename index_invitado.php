@@ -10,8 +10,8 @@ NAVARRO GUTIÉRREZ ESTHEFANI
   //session_destroy();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "cris";
-$password = "adminroot";
+$username = "root";
+$password = "";
 $dbname = "nueva_cucomerce";
 
 // Crear conexión
@@ -39,6 +39,7 @@ $ventaTabla = $conn->query($ventas);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="assets/styles/inicio.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-Commerce</title>
     <link rel="shortcut icon" href="assets/img/Logo.png">
@@ -85,7 +86,7 @@ $ventaTabla = $conn->query($ventas);
                 
                 <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
+                        <button><i class="bi bi-bell-fill" width="30px" height="30"></i></button>
                     </a>
                     <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
                     <!-- codigo PHP para imprimir las notificaciones     -->
