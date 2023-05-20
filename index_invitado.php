@@ -79,7 +79,7 @@ $ventaTabla = $conn->query($ventas);
             
             <ul class="nav">
                 <li class="nav-item mt-5">
-                    <a href="log_in.php">
+                    <a href="sign_up.php">
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
                 </li>
