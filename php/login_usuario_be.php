@@ -5,7 +5,7 @@ include 'conexion_sign.php';
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
 
-$validar_login = mysqli_query($conexion, "SELECT * FROM persona WHERE correo='$correo' 
+$validar_login = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo' 
 and contrasena='$contrasena'");
 
 if(mysqli_num_rows($validar_login) > 0){

@@ -1,5 +1,5 @@
 <?php
-$conexion = mysqli_connect("localhost", "root", "rootjiang", "perfiles");
+$conexion = mysqli_connect("localhost", "root", "", "perfiles");
 
 /*
 if($conexion){

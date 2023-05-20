@@ -186,7 +186,7 @@ $result = $conn->query($sql);
                 <div class="producto">
                     <div class="imagen">
                         <br>
-                        <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
+                        <img src="assets/img/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
                     <span class="texto">
                         <h4><?php echo $article['Nombre']?></h4>

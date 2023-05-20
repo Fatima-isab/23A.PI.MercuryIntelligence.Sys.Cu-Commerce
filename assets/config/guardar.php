@@ -9,7 +9,7 @@ $categoria = $_POST['Categoria'];
 $fCaducidad = $_POST['FCaducidad'];
 $inventario = $_POST['Inventario'];
 // Mueve el archivo de la ubicación temporal a una ubicación permanente
-$ruta_imagen = 'img/' . $imagen;
+$ruta_imagen = '../img/' . $imagen;
 move_uploaded_file($imagen_tmp, $ruta_imagen);
 
 // Conecta a la base de datos (asumiendo MySQL)
@@ -17,7 +17,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'e_commerce');
 
 // Inserta los datos en la tabla correspondiente
 $query = "INSERT INTO productos (IdVendedor, Nombre, Ruta_Foto, Descripcion, Precio, Categoria, FCaducidad, Inventario) VALUES 
-(1,'$nombre', '$ruta_imagen','$descripcion','$precio','$categoria', '$fCaducidad', '$inventario')";
+(1,'$nombre', '$imagen','$descripcion','$precio','$categoria', '$fCaducidad', '$inventario')";
 mysqli_query($conexion, $query);
 
 // Cierra la conexión a la base de datos

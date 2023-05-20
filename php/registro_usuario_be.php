@@ -7,11 +7,11 @@ $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
 $contrasena_enc = hash('sha512', $contrasena);  
 
-$query = "INSERT INTO persona(Nombres, correo, contrasena) 
+$query = "INSERT INTO personas(Nombres, correo, contrasena) 
 VALUES('$nombre_completo', '$correo', '$contrasena')"; 
  
 //verificar que no se repitan el correo
-$verificar_correo = mysqli_query($conexion, "SELECT * FROM persona WHERE correo='$correo' ");
+$verificar_correo = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo' ");
 
 if(mysqli_num_rows($verificar_correo) > 0){
     echo'

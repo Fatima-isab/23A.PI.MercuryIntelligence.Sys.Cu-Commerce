@@ -61,8 +61,7 @@ CREATE TABLE productos (
   FCaducidad DATE COMMENT 'registrar la fecha en la que se caduca el producto en caso de ser necesario',
   Inventario  INT(10) NOT NULL  COMMENT 'Precio que se quiere vender cierto producto ',
   PRIMARY KEY (IdProductos),
-  FOREIGN KEY(IdVendedor) REFERENCES vendedores(IdVendedores) ON UPDATE CASCADE,
-  FOREIGN KEY(IdCategoria) REFERENCES categorias(IdCategorias) ON UPDATE CASCADE
+  FOREIGN KEY(IdVendedor) REFERENCES vendedores(IdVendedores) ON UPDATE CASCADE
 ) COMMENT = 'Tabla para el almacenamiento de todos los productos que se venderan';
 ALTER TABLE productos AUTO_INCREMENT = 1;
 
