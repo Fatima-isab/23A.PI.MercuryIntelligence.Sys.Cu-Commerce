@@ -100,10 +100,103 @@ $ventaTabla = $conn->query($ventas);
                                 echo '<div class="dropdown-divider"></div>';
                                 echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
                             }
+<<<<<<< Updated upstream
                         }   ?>
                     </div>
                 </li>
 </ul>
+=======
+                            echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            echo '<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="calificacionBtn"  style="background-color: #FE8744">Agregar Calificación</button>
+                                </div>';
+                        }
+                    ?>
+                    </div>
+                </li>
+            </ul>
+                <div id="modal" class="modal">
+                    <div class="modal-content" style="">
+                        <span class="cerrar">&times;</span>
+                        <h2 style="">Publica tu Producto</h2>
+                        <section>
+                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
+                                class="formulario" enctype="multipart/form-data">
+
+                                <label for="image">Selecciona imagen del producto</label>
+                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
+                                     border: 3px;">
+                                <div class="parte1">
+                     
+                                <label for="Nombre"></label>
+                                <br>
+                                <input type="text" name="title" id="Nombre" required placeholder="Nombre del Producto">
+
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
+                                </div>
+                                <label for="Categoria">Categoria: </label>
+                                <select id="cate">
+                                    <option value="opcion1">Comida</option>
+                                    <option value="opcion2">Tecnologia</option>
+                                    <option value="opcion3">Educacion</option>
+                                </select>
+                                <br>
+                                <br>
+
+                                <label for="Descripcion">Descripcion: </label>
+                                <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
+                                    style="border-radius: 8px;"></textarea>
+
+                                <label for="Precio">Precio: </label>
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
+                                <br>
+                                <br>
+
+                                <label for="caducidad">Caducidad: </label>
+                                <input type="date" id="FCaducidad" name="FCaducidad">
+
+                                <?php if(isset($error)):?>
+                                <p class="error">
+                                    <?php echo $error;?>
+                                </p>
+                                <?php elseif(isset($msg)):?>
+                                <p class="success">
+                                    <?php echo $msg;?>
+                                </p>
+                                <?php endif;?>
+
+                                <input type="submit" value="Publicar">
+                                <input type="reset" value="Descartar">
+                                <br>
+                                <br>
+                                <label for=""></label>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- Modal calificacion -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header"> 
+                                <h5 class="modal-title" id="myModalLabel">Califica tu compra</h5>   
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Escribe aquí tu comentario sobre la compra" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Escribe aquí tu comentario sobre la compra</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Me gusta</button>
+                                <button type="button" class="btn btn-secondary">No me gusta</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Fin modal calificacion -->
+>>>>>>> Stashed changes
             
         </div>
         </div>
@@ -138,9 +231,40 @@ $ventaTabla = $conn->query($ventas);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-</body>
 
-<head>
     <script src="assets/scripts/inicio.js"></script>
-</head>
+
+    <!-- funciones para el modal Calificaciones -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var modal = new bootstrap.Modal(document.getElementById("myModal"));
+            var closeButton = document.querySelector(".modal-header .btn-close");
+            var likeButton = document.querySelector(".modal-footer .btn-primary");
+            var dislikeButton = document.querySelector(".modal-footer .btn-secondary");
+            var textarea = document.getElementById("floatingTextarea2");
+
+            closeButton.addEventListener("click", function() {
+                modal.hide();
+            });
+
+            likeButton.addEventListener("click", function() {
+                // Aquí puedes agregar la lógica para enviar el comentario y procesarlo como "Me gusta"
+                // Puedes mostrar un mensaje de confirmación utilizando un alert o una notificación en lugar de la consola
+                console.log("Comentario enviado correctamente. Me gusta");
+                textarea.value = ""; // Limpiar el textarea después de enviar el comentario
+                modal.hide();
+                alert("¡Gracias por tu comentario! Se ha enviado correctamente como 'Me gusta'.");
+            });
+
+            dislikeButton.addEventListener("click", function() {
+                // Aquí puedes agregar la lógica para enviar el comentario y procesarlo como "No me gusta"
+                // Puedes mostrar un mensaje de confirmación utilizando un alert o una notificación en lugar de la consola
+                console.log("Comentario enviado correctamente. No me gusta");
+                textarea.value = ""; // Limpiar el textarea después de enviar el comentario
+                modal.hide();
+                alert("¡Gracias por tu comentario! Se ha enviado correctamente como 'No me gusta'.");
+            });
+        });
+    </script>
+</body>
 </html>
