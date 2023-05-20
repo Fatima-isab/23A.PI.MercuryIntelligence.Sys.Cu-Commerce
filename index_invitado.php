@@ -1,4 +1,3 @@
-
 <!-- Equipo 6: Mercury Intelligence
     INTEGRANTES:
 ROMÁN LÓPEZ FÁTIMA ISABEL
@@ -8,20 +7,12 @@ HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
  <?php
- session_start();
-
- if(!isset($_SESSION['usuario'])){
-
-    header("location: index_invitado.php");
-    session_destroy();
-    die();
- }
   //session_destroy();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_commerce";
+$username = "cris";
+$password = "adminroot";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -32,7 +23,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener los datos de la tabla
-$sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
+$sql = "SELECT IdProductos, Nombre, Ruta_Foto, Precio, Descripcion FROM productos";
 $result = $conn->query($sql);
 ?>
 
@@ -55,12 +46,12 @@ $result = $conn->query($sql);
 <body>
     <header>
         <div id="CtnHead" class="row shadow">
-
-            <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2">
+            <!-- aqui va el logo de la plataforma -->
+            <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2"> 
                 <img src="assets/img/Logo.png">
                 <h5>El comercio entre nosotros</h5>
             </div>
-
+            <!-- Barra de navegación con el titulo en grande, con la barra de navegación y el botón de inicio de sesión -->
             <div id="NomBar" class="col-sm-8 col-md-8 col-lg-6 col-xl-6">
                 <div id="NomPrin">
                     <h4>Cu - Commerce </h4>
@@ -77,90 +68,58 @@ $result = $conn->query($sql);
                     </nav>
                 </div>
             </div>
-
+        <!-- botones adicionales como iniciar sesión, notificaciones, etc -->
         <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
             
             <ul class="nav">
                 <li class="nav-item mt-5">
-                    <button onclick="abrirModal()" class="btn btn-outline-secondary id="agregar">Publicar</button>
-
+                    <a href="log_in.php">
+                        <button class="btn btn-outline-secondary">Iniciar sesión</button>
+                    </a>
                 </li>
                 <li class="nav-item mt-5">
-                    <button class="btn btn-outline-secondary ">Notificaciones</button>
-                </li>
-                <li class="nav-item mt-5">
-                     <!-- SideBar -->
-                     <nav class="navbar">
-                            <div class="container-fluid">
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarNav">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" aria-current="page">Categorias</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Comida</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Ropa</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Utiles</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-         <!-- fin de la side bar-->
+                     
                 </li>
             </ul>
-
-
                 <div id="modal" class="modal">
                     <div class="modal-content" style="">
                         <span class="cerrar">&times;</span>
                         <h2 style="">Publica tu Producto</h2>
                         <section>
-                            <form action="assets/config/guardar.php" method="post"
+                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
                                 class="formulario" enctype="multipart/form-data">
 
                                 <label for="image">Selecciona imagen del producto</label>
-                                <input type="file" name="Ruta_Foto" id="Ruta_Imagen" required style="border-radius: 8px;
+                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
                                      border: 3px;">
-                    
+                                <div class="parte1">
                      
-                        
+                                <label for="Nombre"></label>
                                 <br>
-                                <input type="text" name="Nombre" id="Nombre" required placeholder="Nombre del Producto">
+                                <input type="text" name="title" id="Nombre" required placeholder="Nombre del Producto">
 
-                                <input type="number" id="Precio" name="Precio" step="1" min="0" placeholder="Precio" required>
-
-                                <br>
-                                <br>
-
-                                <textarea name="Descripcion" id="Descripcion" placeholder="Descripcion del producto"
-                                    style="border-radius: 8px;"></textarea>
-
-                                <p>Fecha de Caducidad: </p>
-                                <input type="date" id="FCaducidad" name="FCaducidad">
-                                <br>
-
-                                <p>Categoria: </p>
-                                <select id="Categoria">
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
+                                </div>
+                                <label for="Categoria">Categoria: </label>
+                                <select id="cate">
                                     <option value="opcion1">Comida</option>
-                                    <option value="opcion2">Utiles</option>
-                                    <option value="opcion3">Ropa</option>
+                                    <option value="opcion2">Tecnologia</option>
+                                    <option value="opcion3">Educacion</option>
                                 </select>
                                 <br>
+                                <br>
 
-                                <p>Piezas Disponibles</p>
-                                <input type="number" id="Inventario" name="Inventario" step="1" min="0" placeholder="Piezas" required>
+                                <label for="Descripcion">Descripcion: </label>
+                                <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
+                                    style="border-radius: 8px;"></textarea>
 
+                                <label for="Precio">Precio: </label>
+                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
+                                <br>
+                                <br>
 
+                                <label for="caducidad">Caducidad: </label>
+                                <input type="date" id="FCaducidad" name="FCaducidad">
 
                                 <?php if(isset($error)):?>
                                 <p class="error">
@@ -171,7 +130,7 @@ $result = $conn->query($sql);
                                     <?php echo $msg;?>
                                 </p>
                                 <?php endif;?>
-                                <br>
+
                                 <input type="submit" value="Publicar">
                                 <input type="reset" value="Descartar">
                                 <br>
@@ -185,19 +144,21 @@ $result = $conn->query($sql);
             
         </div>
         </div>
-    </header>
+    </header><!-- Fin del contenedor Header -->
 
     <main>
         <div id="Ubi">Aqui va la Ubicacion </div>
+        <!-- "container" contendrá todas las publicaciones dentro -->
         <section class="container">
             <?php foreach($result as $article): ?>
+            <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
             <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
-                        <img src="assets/img/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
+                        <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
-                    <span class="texto">
+                    <span class="texto"> <!-- Se muestra el nombre del producto y su precio dentro del div, del producto -->
                         <h4><?php echo $article['Nombre']?></h4>
                         <h4><?php echo "$".$article['Precio']?></h4>
             </span>

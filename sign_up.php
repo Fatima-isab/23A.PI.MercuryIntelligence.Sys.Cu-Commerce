@@ -6,7 +6,12 @@ RUVALCABA BECERRA URIEL DE JESÚS
 HERNÁNDEZ FRANCO CRISTOFER
 NAVARRO GUTIÉRREZ ESTHEFANI
  -->
-
+<?php
+session_start();
+if(isset($_SESSION['usuario'])){
+    header("location: inicio.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +53,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 
                 <form  action="php/registro_usuario_be.php" method="POST" class="formulario_sign">
                     <h2>Registro</h2>
-                    <input type="text" placeholder="Nombre completo" name="nombre_completo">
+                    <input type="text" placeholder="Nombre completo" name="Nombres">
                     <input type="text" placeholder="Correo institucional" name="correo">
                     <input type="password" placeholder="Contraseña" name="contrasena">
                     <button>Registrarse</button>
