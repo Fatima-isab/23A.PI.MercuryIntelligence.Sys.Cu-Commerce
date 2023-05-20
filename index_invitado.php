@@ -72,7 +72,7 @@ $result = $conn->query($sql);
         <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
             
             <ul class="nav">
-                <li class="nav-item mt-5">
+                <li class="nav-item mt-5"> <!-- Botón Iniciar sesión -->
                     <a href="log_in.php">
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
@@ -80,7 +80,7 @@ $result = $conn->query($sql);
                 <li class="nav-item mt-5">
                      
                 </li>
-                <li class="nav-item mt-5 dropdown">
+                <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
                     </a>
