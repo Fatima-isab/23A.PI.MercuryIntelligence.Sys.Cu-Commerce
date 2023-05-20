@@ -36,8 +36,8 @@ $sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, 
 $result = $conn->query($sql);
 
 $id='1';// Variable de test.. usuario no 1.
-$ventas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";
-$ventaTabla = $conn->query($ventas);
+$comandoSQLVentas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";// Consulta de las notificaciones relacionadas con el usuario
+$ventaTabla = $conn->query($comandoSQLVentas);
 
 ?>
 
@@ -96,11 +96,18 @@ $ventaTabla = $conn->query($ventas);
                         <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
                     </a>
                     <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
-                        
-                        <?php foreach($ventaTabla as $cadaNotific): ?>
-                            <div class="dropdown-divider"></div>
-                            <p><?php echo $cadaNotific['Mensaje']?></p>
-                        <?php endforeach;?>
+                    <!-- codigo PHP para imprimir las notificaciones     -->
+                    <?php $primeraIteracion = true;
+                        foreach ($ventaTabla as $cadaNotific) {
+                            if ($primeraIteracion) {// Primera iteracion de todas las notificaciones
+                                $primeraIteracion = false; 
+                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            } else { // Todos los demás ciclos 
+                                // Código HTML que se ejecutará a partir de la segunda iteración
+                                echo '<div class="dropdown-divider"></div>';
+                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            }
+                        }   ?>
                     </div>
                 </li>
 
