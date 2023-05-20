@@ -34,6 +34,11 @@ if ($conn->connect_error) {
 // Consulta para obtener los datos de la tabla
 $sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
 $result = $conn->query($sql);
+
+$id='1';// Variable de test.. usuario no 1.
+$ventas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";
+$ventaTabla = $conn->query($ventas);
+
 ?>
 
 <!DOCTYPE html>
@@ -90,12 +95,12 @@ $result = $conn->query($sql);
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
                     </a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">tipo1</a>
-                        <a href="#" class="dropdown-item">tipo2</a>
-                        <a href="#" class="dropdown-item">tipo3</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">notif con  divisor</a>
+                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
+                        
+                        <?php foreach($ventaTabla as $cadaNotific): ?>
+                            <div class="dropdown-divider"></div>
+                            <p><?php echo $cadaNotific['Mensaje']?></p>
+                        <?php endforeach;?>
                     </div>
                 </li>
 
@@ -200,17 +205,17 @@ $result = $conn->query($sql);
 
     <main>
         <section class="container">
-            <?php foreach($result as $article): ?>
-            <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">
+            <?php foreach($result as $productos): ?>
+            <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
-                        <img src="assets/img/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
+                        <img src="assets/img/<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
                     <span class="texto">
-                        <h4><?php echo $article['Nombre']?></h4>
-                        <h4><?php echo "$".$article['Precio']?></h4>
-            </span>
+                        <h4><?php echo $productos['Nombre']?></h4>
+                        <h4><?php echo "$".$productos['Precio']?></h4>
+                    </span>
                 </div>
             </a>
             <?php endforeach;?>
