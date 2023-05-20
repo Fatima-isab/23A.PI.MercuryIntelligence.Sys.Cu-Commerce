@@ -87,19 +87,22 @@ $ventaTabla = $conn->query($ventas);
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
                     </a>
-                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
+                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
                     <!-- codigo PHP para imprimir las notificaciones     -->
-                    <?php $primeraIteracion = true;
+                    <?php
+                        $primeraIteracion = true;
                         foreach ($ventaTabla as $cadaNotific) {
-                            if ($primeraIteracion) {// Primera iteracion de todas las notificaciones
-                                $primeraIteracion = false; 
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
-                            } else { // Todos los demás ciclos 
-                                // Código HTML que se ejecutará a partir de la segunda iteración
-                                echo '<div class="dropdown-divider"></div>';
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            if ($primeraIteracion) {
+                                $primeraIteracion = false;
+                            } else {
+                                echo '<div class="dropdown-divider" style="margin-top: 20px;"></div>';
                             }
-                        }   ?>
+                            echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            echo '<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button data-toggle="modal" data-target="modalCalificacion" id="calificacionBtn" class="btn btn-primary me-md-2" type="button" style="background-color: #FE8744">Agregar Calificación</button>
+                                </div>';
+                        }
+                    ?>
                     </div>
                 </li>
             </ul>
@@ -162,7 +165,15 @@ $ventaTabla = $conn->query($ventas);
                         </section>
                     </div>
                 </div>
-
+                
+                <!-- Agregar Calificacion modal -->
+                <div id="modalCalificacion" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                    <!-- ... contenido -->
+                    </div>
+                </div>
+                </div>
             
         </div>
         </div>

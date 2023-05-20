@@ -1,9 +1,9 @@
 <?php 
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_commerce";
+$username = "cris";
+$password = "adminroot";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -95,19 +95,22 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
                     </a>
-                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
+                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
                     <!-- codigo PHP para imprimir las notificaciones     -->
-                    <?php $primeraIteracion = true;
+                    <?php
+                        $primeraIteracion = true;
                         foreach ($ventaTabla as $cadaNotific) {
-                            if ($primeraIteracion) {// Primera iteracion de todas las notificaciones
-                                $primeraIteracion = false; 
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
-                            } else { // Todos los demás ciclos 
-                                // Código HTML que se ejecutará a partir de la segunda iteración
-                                echo '<div class="dropdown-divider"></div>';
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            if ($primeraIteracion) {
+                                $primeraIteracion = false;
+                            } else {
+                                echo '<div class="dropdown-divider" style="margin-top: 20px;"></div>';
                             }
-                        }   ?>
+                            
+                            echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            echo '<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn btn-primary me-md-2" type="button">Agregar Reseña</button></div>';
+                        }
+                    ?>
                     </div>
                 </li>
 
