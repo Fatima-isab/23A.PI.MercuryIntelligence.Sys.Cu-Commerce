@@ -80,6 +80,18 @@ $result = $conn->query($sql);
                 <li class="nav-item mt-5">
                      
                 </li>
+                <li class="nav-item mt-5 dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">tipo1</a>
+                        <a href="#" class="dropdown-item">tipo2</a>
+                        <a href="#" class="dropdown-item">tipo3</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">notif con  divisor</a>
+                    </div>
+                </li>
             </ul>
                 <div id="modal" class="modal">
                     <div class="modal-content" style="">
