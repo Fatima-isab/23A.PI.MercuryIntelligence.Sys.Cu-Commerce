@@ -85,9 +85,20 @@ $result = $conn->query($sql);
                     <button onclick="abrirModal()" class="btn btn-outline-secondary id="agregar">Publicar</button>
 
                 </li>
-                <li class="nav-item mt-5">
-                    <button class="btn btn-outline-secondary ">Notificaciones</button>
+                
+                <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">tipo1</a>
+                        <a href="#" class="dropdown-item">tipo2</a>
+                        <a href="#" class="dropdown-item">tipo3</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">notif con  divisor</a>
+                    </div>
                 </li>
+
                 <li class="nav-item mt-5">
                      <!-- SideBar -->
                      <nav class="navbar">

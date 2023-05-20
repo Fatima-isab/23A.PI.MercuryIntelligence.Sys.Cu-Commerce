@@ -77,9 +77,7 @@ $result = $conn->query($sql);
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
                 </li>
-                <li class="nav-item mt-5">
-                     
-                </li>
+                
                 <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
