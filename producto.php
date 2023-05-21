@@ -2,7 +2,7 @@
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -61,12 +61,14 @@ if ($producto) {
     </main>
     <div class="clear">
 
-    </div>
-            <div class="compra"> <!-- Botón Compra -->
-                   
-                        <button class="btn btn-outline"><i class="bi bi-coin"></i>comprar</button>
-                    <!-- </a> -->
-                </div>
+				</div>
+			
+		
+				<div class="botones">
+					<a href="#" class="boton primario"><i class="bi bi-coin"></i>Comprar</a>
+					
+				</div>
+			</div>
     <footer>
         <p>Mercury Intelligent</p>
     </footer>
