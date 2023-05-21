@@ -17,9 +17,13 @@ if(isset($_GET['art'])){
     $art_id = $_GET['art'];
 }
 
+
 $query = "SELECT * FROM productos WHERE IdProductos = $art_id ";
 $result = mysqli_query($conn, $query);
 $producto = mysqli_fetch_assoc($result);
+$query2 = "SELECT * FROM personas WHERE correo = $_SESSION[usuario] ";
+$result2 = mysqli_query($conn, $query2);
+$vendedor = mysqli_fetch_assoc($result2);
 
 // Verificar si se encontró un artículo con el ID especificado
 if ($producto) {
@@ -45,6 +49,7 @@ if ($producto) {
         <section class="producto">
             <div class="prod">
                 <div class="imagen">
+                <p><?php echo "Precio: ".$vendedor['Nombres']?></p>
                     <h2><?php echo $producto['Nombre']?></h2>
                     <img src="assets/<?php echo $producto['Ruta_Foto']?>" alt="">
                 </div>

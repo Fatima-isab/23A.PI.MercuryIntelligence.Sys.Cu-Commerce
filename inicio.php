@@ -21,7 +21,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "nueva_comerce";
+$dbname = "e_commerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);

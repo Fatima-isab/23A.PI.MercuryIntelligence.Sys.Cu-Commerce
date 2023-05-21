@@ -6,13 +6,13 @@ $Nombres = $_POST['Nombres'];
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
 
-$query = "INSERT INTO personas(Nombres, correo, contrasena) 
+$query = "INSERT INTO personas(Nombres, correo, pasword) 
 VALUES('$nombre_completo', '$correo', '$contrasena')"; 
  
 //verificar que no se repitan el correo
 $verificar_correo = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo' ");
 
-$query = "INSERT INTO personas(Nombres, correo, contrasena) 
+$query = "INSERT INTO personas(Nombres, correo, pasword) 
 VALUES('$Nombres', '$correo', '$contrasena')"; 
  
 //verificar que no se repitan el correo
