@@ -42,6 +42,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-Commerce</title>
     <link rel="shortcut icon" href="assets/img/Logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Para bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -82,11 +83,15 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
                 </li>
-                
                 <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
+                  <div class="contenedor-icono">
+                    <button class="btn btn-outline">
+                        <i class="bi bi-bell-fill" width="30px" height="30"></i></button>
+                </div>
                     </a>
+
+        
                     <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
                     <!-- codigo PHP para imprimir las notificaciones     -->
                     <?php
@@ -181,8 +186,8 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Me gusta</button>
-                                <button type="button" class="btn btn-secondary">No me gusta</button>
+                                <button type="button" class="btn btn-primary"><i class="bi bi-hand-thumbs-up"></i>Me gusta</button>
+                                <button type="button" class="btn btn-secondary"><i class="bi bi-hand-thumbs-down"></i>No me gusta</button>
                             </div>
                         </div>
                     </div>
