@@ -37,6 +37,7 @@ if ($producto) {
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="./assets/styles/producto.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <body>
     <header>
         <h1><span></span> Comprar Producto <span></span></h1>
@@ -58,7 +59,14 @@ if ($producto) {
             </div>
         </section>
     </main>
-    <div class="clear"></div>
+    <div class="clear">
+
+    </div>
+            <div class="compra"> <!-- Botón Compra -->
+                   
+                        <button class="btn btn-outline"><i class="bi bi-coin"></i>comprar</button>
+                    <!-- </a> -->
+                </div>
     <footer>
         <p>Mercury Intelligent</p>
     </footer>
