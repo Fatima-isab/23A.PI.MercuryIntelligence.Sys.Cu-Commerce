@@ -1,5 +1,6 @@
 <?php
-@include 'config.php';
+
+<<<<<<< HEAD
 
 $conexion = mysqli_connect("localhost", "cris", "adminroot", "nueva_cucomerce");
 

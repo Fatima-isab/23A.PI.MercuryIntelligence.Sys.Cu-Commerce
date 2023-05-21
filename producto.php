@@ -17,9 +17,13 @@ if(isset($_GET['art'])){
     $art_id = $_GET['art'];
 }
 
+
 $query = "SELECT * FROM productos WHERE IdProductos = $art_id ";
 $result = mysqli_query($conn, $query);
 $producto = mysqli_fetch_assoc($result);
+$query2 = "SELECT * FROM personas WHERE correo = $_SESSION[usuario] ";
+$result2 = mysqli_query($conn, $query2);
+$vendedor = mysqli_fetch_assoc($result2);
 
 // Verificar si se encontró un artículo con el ID especificado
 if ($producto) {
@@ -37,7 +41,6 @@ if ($producto) {
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="./assets/styles/producto.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <body>
     <header>
         <h1><span></span> Comprar Producto <span></span></h1>
@@ -46,6 +49,7 @@ if ($producto) {
         <section class="producto">
             <div class="prod">
                 <div class="imagen">
+                <p><?php echo "Precio: ".$vendedor['Nombres']?></p>
                     <h2><?php echo $producto['Nombre']?></h2>
                     <img src="assets/<?php echo $producto['Ruta_Foto']?>" alt="">
                 </div>
@@ -59,16 +63,7 @@ if ($producto) {
             </div>
         </section>
     </main>
-    <div class="clear">
-
-				</div>
-			
-		
-				<div class="botones">
-					<a href="#" class="boton primario"><i class="bi bi-coin"></i>Comprar</a>
-					
-				</div>
-			</div>
+    <div class="clear"></div>
     <footer>
         <p>Mercury Intelligent</p>
     </footer>

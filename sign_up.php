@@ -65,8 +65,6 @@ if(isset($_SESSION['usuario'])){
             </div>
         </div>
   
-       
-       
     </main>
     <script src="assets/scripts/sing_up.js"></script>
 </body>

@@ -50,7 +50,7 @@ footer {
 }
 
 .producto{
-    width: 100%;
+    width: 90%;
     margin: 20px auto;
     display: grid;
     gap: 5%;
@@ -58,7 +58,7 @@ footer {
 
 .prod{
     width: 100%;
-    text-align: left;
+    text-align: center;
     border-radius: 8px;
     background-color: var(--Secundario);
 }
