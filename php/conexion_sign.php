@@ -2,7 +2,7 @@
 
 <<<<<<< HEAD
 
-$conexion = mysqli_connect("localhost", "cris", "adminroot", "nueva_cucomerce");
+$conexion = mysqli_connect("localhost", "root", "12345", "e_commerce");
 
 /*
 if($conexion){
