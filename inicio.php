@@ -21,7 +21,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "nueva_comerce";
+$dbname = "e_commerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -60,12 +60,12 @@ $ventaTabla = $conn->query($comandoSQLVentas);
 <body>
     <header>
         <div id="CtnHead" class="row shadow">
-
+            <!-- aqui va el logo de la plataforma -->
             <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2">
                 <img src="assets/img/Logo.png">
                 <h5>El comercio entre nosotros</h5>
             </div>
-
+            <!-- Barra de navegación con el titulo en grande, con la barra de navegación y el botón de inicio de sesión -->
             <div id="NomBar" class="col-sm-8 col-md-8 col-lg-6 col-xl-6">
                 <div id="NomPrin">
                     <h4>Cu - Commerce </h4>
@@ -82,11 +82,11 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     </nav>
                 </div>
             </div>
-
+        <!-- botones adicionales como iniciar sesión, notificaciones, etc -->
         <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
             
             <ul class="nav">
-                <li class="nav-item mt-5">
+                <li class="nav-item mt-5"> <!-- Botón Iniciar sesión -->
                     <button onclick="abrirModal()" class="btn btn-outline-secondary id="agregar">Publicar</button>
 
                 </li>
@@ -95,19 +95,22 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
                     </a>
-                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
+                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
                     <!-- codigo PHP para imprimir las notificaciones     -->
-                    <?php $primeraIteracion = true;
+                    <?php
+                        $primeraIteracion = true;
                         foreach ($ventaTabla as $cadaNotific) {
-                            if ($primeraIteracion) {// Primera iteracion de todas las notificaciones
-                                $primeraIteracion = false; 
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
-                            } else { // Todos los demás ciclos 
-                                // Código HTML que se ejecutará a partir de la segunda iteración
-                                echo '<div class="dropdown-divider"></div>';
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            if ($primeraIteracion) {
+                                $primeraIteracion = false;
+                            } else {
+                                echo '<div class="dropdown-divider" style="margin-top: 20px;"></div>';
                             }
-                        }   ?>
+                            echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            echo '<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="calificacionBtn"  style="background-color: #FE8744">Agregar Calificación</button>
+                                </div>';
+                        }
+                    ?>
                     </div>
                 </li>
 
@@ -204,22 +207,45 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                         </section>
                     </div>
                 </div>
-
+                
+                 <!-- Modal calificacion -->
+                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header"> 
+                                <h5 class="modal-title" id="myModalLabel">Califica tu compra</h5>   
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Escribe aquí tu comentario sobre la compra" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Escribe aquí tu comentario sobre la compra</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Me gusta</button>
+                                <button type="button" class="btn btn-secondary">No me gusta</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Fin modal calificacion -->
             
         </div>
         </div>
-    </header>
+    </header><!-- Fin del contenedor Header -->
 
-    <main>
+    <main> 
+        <!-- "container" contendrá todas las publicaciones dentro -->
         <section class="container">
             <?php foreach($result as $productos): ?>
+            <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
             <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
                         <img src="assets/img/<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
-                    <span class="texto">
+                    <span class="texto"><!-- Se muestra el nombre del producto y su precio dentro del div, del producto -->
                         <h4><?php echo $productos['Nombre']?></h4>
                         <h4><?php echo "$".$productos['Precio']?></h4>
                     </span>
@@ -237,9 +263,40 @@ $ventaTabla = $conn->query($comandoSQLVentas);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-</body>
 
-<head>
     <script src="assets/scripts/inicio.js"></script>
-</head>
+
+    <!-- // funciones para el modal Calificaciones -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var modal = new bootstrap.Modal(document.getElementById("myModal"));
+            var closeButton = document.querySelector(".modal-header .btn-close");
+            var likeButton = document.querySelector(".modal-footer .btn-primary");
+            var dislikeButton = document.querySelector(".modal-footer .btn-secondary");
+            var textarea = document.getElementById("floatingTextarea2");
+
+            closeButton.addEventListener("click", function() {
+                modal.hide();
+            });
+
+            likeButton.addEventListener("click", function() {
+                // Aquí puedes agregar la lógica para enviar el comentario y procesarlo como "Me gusta"
+                // Puedes mostrar un mensaje de confirmación utilizando un alert o una notificación en lugar de la consola
+                console.log("Comentario enviado correctamente. Me gusta");
+                textarea.value = ""; // Limpiar el textarea después de enviar el comentario
+                modal.hide();
+                alert("¡Gracias por tu comentario! Se ha enviado correctamente como 'Me gusta'.");
+            });
+
+            dislikeButton.addEventListener("click", function() {
+                // Aquí puedes agregar la lógica para enviar el comentario y procesarlo como "No me gusta"
+                // Puedes mostrar un mensaje de confirmación utilizando un alert o una notificación en lugar de la consola
+                console.log("Comentario enviado correctamente. No me gusta");
+                textarea.value = ""; // Limpiar el textarea después de enviar el comentario
+                modal.hide();
+                alert("¡Gracias por tu comentario! Se ha enviado correctamente como 'No me gusta'.");
+            });
+        });
+    </script>
+</body>
 </html>

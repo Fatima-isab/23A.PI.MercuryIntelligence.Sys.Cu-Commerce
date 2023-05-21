@@ -27,8 +27,8 @@ $sql = "SELECT IdProductos, Nombre, Ruta_Foto, Precio, Descripcion FROM producto
 $result = $conn->query($sql);
 
 $id='1';// Variable de test.. usuario no 1.
-$ventas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";
-$ventaTabla = $conn->query($ventas);
+$comandoSQLVentas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";// Consulta de las notificaciones relacionadas con el usuario
+$ventaTabla = $conn->query($comandoSQLVentas);
 
 ?>
 
@@ -39,7 +39,6 @@ $ventaTabla = $conn->query($ventas);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="assets/styles/inicio.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-Commerce</title>
     <link rel="shortcut icon" href="assets/img/Logo.png">
@@ -78,34 +77,26 @@ $ventaTabla = $conn->query($ventas);
         <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
             
             <ul class="nav">
-                <li class="nav-item mt-5">
-                    <a href="sign_up.php">
+                <li class="nav-item mt-5"> <!-- Botón Iniciar sesión -->
+                    <a href="log_in.php">
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
                 </li>
                 
                 <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <button><i class="bi bi-bell-fill" width="30px" height="30"></i></button>
+                        <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
                     </a>
-                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
+                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
                     <!-- codigo PHP para imprimir las notificaciones     -->
-                    <?php $primeraIteracion = true;
+                    <?php
+                        $primeraIteracion = true;
                         foreach ($ventaTabla as $cadaNotific) {
-                            if ($primeraIteracion) {// Primera iteracion de todas las notificaciones
-                                $primeraIteracion = false; 
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
-                            } else { // Todos los demás ciclos 
-                                // Código HTML que se ejecutará a partir de la segunda iteración
-                                echo '<div class="dropdown-divider"></div>';
-                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            if ($primeraIteracion) {
+                                $primeraIteracion = false;
+                            } else {
+                                echo '<div class="dropdown-divider" style="margin-top: 20px;"></div>';
                             }
-<<<<<<< Updated upstream
-                        }   ?>
-                    </div>
-                </li>
-</ul>
-=======
                             echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
                             echo '<div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="calificacionBtn"  style="background-color: #FE8744">Agregar Calificación</button>
@@ -196,7 +187,6 @@ $ventaTabla = $conn->query($ventas);
                         </div>
                     </div>
                 </div><!-- Fin modal calificacion -->
->>>>>>> Stashed changes
             
         </div>
         </div>
@@ -234,7 +224,7 @@ $ventaTabla = $conn->query($ventas);
 
     <script src="assets/scripts/inicio.js"></script>
 
-    <!-- funciones para el modal Calificaciones -->
+    <!-- // funciones para el modal Calificaciones -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var modal = new bootstrap.Modal(document.getElementById("myModal"));
