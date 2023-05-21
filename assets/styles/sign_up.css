@@ -52,7 +52,7 @@ main {
     display: flex;
     justify-content: center;
     backdrop-filter: blur(10px);
-    background-color: var(--Secundario);
+    /* background-color: var(--Secundario); */
     border-radius: 20px;
 }
 .trasera img{
@@ -124,9 +124,9 @@ main {
 }
 
 .contenedor_registro form input{
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
+     width: 100%;
+    margin-top: 30px;
+    padding: 10px; 
     border: none;
     background: #FFF;
     text-align: center;
@@ -137,13 +137,12 @@ main {
 
 .contenedor_registro form button{
     padding: 10px 40px;
-    border: 2px solid var(--Principal);
-    background: transparent;
-    font-size: 14px;
-    font-weight: 600;
+    background: var(--Principal);
+    font-size: 16px;
+    font-weight: 600; 
     justify-content: center;
     cursor: pointer;
-    color: var(--Negro);
+    color: var(--Blanco);
     outline: none;
     transition: all 300ms;
     border-radius: 100px;
@@ -153,7 +152,7 @@ main {
 }
 
 .contenedor_registro form button:hover{
-    background: var(--Principal);
+    background: var(--Secundario);
     color: var(--blanco);
 }
 
