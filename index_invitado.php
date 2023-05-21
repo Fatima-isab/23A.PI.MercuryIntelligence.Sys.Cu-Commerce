@@ -10,9 +10,9 @@ NAVARRO GUTIÉRREZ ESTHEFANI
   //session_destroy();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_commerce";
+$username = "cris";
+$password = "adminroot";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -25,6 +25,11 @@ if ($conn->connect_error) {
 // Consulta para obtener los datos de la tabla
 $sql = "SELECT IdProductos, Nombre, Ruta_Foto, Precio, Descripcion FROM productos";
 $result = $conn->query($sql);
+
+$id='1';// Variable de test.. usuario no 1.
+$ventas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";
+$ventaTabla = $conn->query($ventas);
+
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +39,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="assets/styles/inicio.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-Commerce</title>
     <link rel="shortcut icon" href="assets/img/Logo.png">
@@ -73,12 +79,29 @@ $result = $conn->query($sql);
             
             <ul class="nav">
                 <li class="nav-item mt-5">
-                    <a href="sign_up.php">
+                    <a href="log_in.php">
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
                 </li>
-                <li class="nav-item mt-5">
-                     
+                
+                <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <button><i class="bi bi-bell-fill" width="30px" height="30"></i></button>
+                    </a>
+                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
+                    <!-- codigo PHP para imprimir las notificaciones     -->
+                    <?php $primeraIteracion = true;
+                        foreach ($ventaTabla as $cadaNotific) {
+                            if ($primeraIteracion) {// Primera iteracion de todas las notificaciones
+                                $primeraIteracion = false; 
+                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            } else { // Todos los demás ciclos 
+                                // Código HTML que se ejecutará a partir de la segunda iteración
+                                echo '<div class="dropdown-divider"></div>';
+                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            }
+                        }   ?>
+                    </div>
                 </li>
 </ul>
             
@@ -87,20 +110,19 @@ $result = $conn->query($sql);
     </header><!-- Fin del contenedor Header -->
 
     <main>
-        <div id="Ubi">Aqui va la Ubicacion </div>
         <!-- "container" contendrá todas las publicaciones dentro -->
         <section class="container">
-            <?php foreach($result as $article): ?>
+            <?php foreach($result as $productos): ?>
             <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
-            <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">
+            <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
-                        <img src="assets/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
+                        <img src="<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
                     <span class="texto"> <!-- Se muestra el nombre del producto y su precio dentro del div, del producto -->
-                        <h4><?php echo $article['Nombre']?></h4>
-                        <h4><?php echo "$".$article['Precio']?></h4>
+                        <h4><?php echo $productos['Nombre']?></h4>
+                        <h4><?php echo "$".$productos['Precio']?></h4>
             </span>
                 </div>
             </a>

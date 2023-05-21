@@ -21,7 +21,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "e_commerce";
+$dbname = "nueva_comerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -34,6 +34,11 @@ if ($conn->connect_error) {
 // Consulta para obtener los datos de la tabla
 $sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
 $result = $conn->query($sql);
+
+$id='1';// Variable de test.. usuario no 1.
+$comandoSQLVentas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";// Consulta de las notificaciones relacionadas con el usuario
+$ventaTabla = $conn->query($comandoSQLVentas);
+
 ?>
 
 <!DOCTYPE html>
@@ -85,9 +90,27 @@ $result = $conn->query($sql);
                     <button onclick="abrirModal()" class="btn btn-outline-secondary id="agregar">Publicar</button>
 
                 </li>
-                <li class="nav-item mt-5">
-                    <button class="btn btn-outline-secondary ">Notificaciones</button>
+                
+                <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
+                    </a>
+                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px;">
+                    <!-- codigo PHP para imprimir las notificaciones     -->
+                    <?php $primeraIteracion = true;
+                        foreach ($ventaTabla as $cadaNotific) {
+                            if ($primeraIteracion) {// Primera iteracion de todas las notificaciones
+                                $primeraIteracion = false; 
+                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            } else { // Todos los demás ciclos 
+                                // Código HTML que se ejecutará a partir de la segunda iteración
+                                echo '<div class="dropdown-divider"></div>';
+                                echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
+                            }
+                        }   ?>
+                    </div>
                 </li>
+
                 <li class="nav-item mt-5">
                      <!-- SideBar -->
                      <nav class="navbar">
@@ -188,19 +211,18 @@ $result = $conn->query($sql);
     </header>
 
     <main>
-        <div id="Ubi">Aqui va la Ubicacion </div>
         <section class="container">
-            <?php foreach($result as $article): ?>
-            <a class="container2" href="producto.php?art=<?php echo $article['IdProductos']?>">
+            <?php foreach($result as $productos): ?>
+            <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
-                        <img src="assets/img/<?php echo $article['Ruta_Foto']?>" alt="" width="250" height="200">
+                        <img src="assets/img/<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
                     <span class="texto">
-                        <h4><?php echo $article['Nombre']?></h4>
-                        <h4><?php echo "$".$article['Precio']?></h4>
-            </span>
+                        <h4><?php echo $productos['Nombre']?></h4>
+                        <h4><?php echo "$".$productos['Precio']?></h4>
+                    </span>
                 </div>
             </a>
             <?php endforeach;?>
