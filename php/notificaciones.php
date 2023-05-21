@@ -1,9 +1,9 @@
-<?php
+<?php//BORRAR ARCHIVO 
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nueva_cucommerce";
+$username = "cris";
+$password = "adminroot";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);

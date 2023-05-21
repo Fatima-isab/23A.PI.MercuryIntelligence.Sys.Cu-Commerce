@@ -35,10 +35,10 @@ if ($conn->connect_error) {
 $sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
 $result = $conn->query($sql);
 
-$id='1';// Variable de test.. usuario no 1.
-$comandoSQLVentas = "SELECT Mensaje FROM folios WHERE IdCliente='$id' OR IdVendedor='$id'";// Consulta de las notificaciones relacionadas con el usuario
+// $idUsuario='1';// Variable de test.. usuario no 1.
+$idUsuario=$_SESSION['IdPersonas'];
+$comandoSQLVentas = "SELECT f.Mensaje FROM folios f LEFT JOIN clientes c ON f.IdCliente = c.IdClientes LEFT JOIN vendedores v ON f.IdVendedor = v.IdVendedores WHERE c.IdPersona = '$idUsuario' OR v.IdPersona = '$idUsuario'";// Consulta de las notificaciones relacionadas con el usuario
 $ventaTabla = $conn->query($comandoSQLVentas);
-
 ?>
 
 <!DOCTYPE html>
@@ -277,14 +277,31 @@ $ventaTabla = $conn->query($comandoSQLVentas);
             var likeButton = document.querySelector(".modal-footer .btn-primary");
             var dislikeButton = document.querySelector(".modal-footer .btn-secondary");
             var textarea = document.getElementById("floatingTextarea2");
+            
+            function enviarCalificacion(calificacion, descripcion, usuario) {
+                // Realizar una solicitud AJAX al servidor
+                $.ajax({
+                    type: 'POST', // Método de la solicitud (en este caso, POST)
+                    url: 'php/guardar_calificacion.php', // URL del archivo PHP que manejará la solicitud
+                    data: {usuario: usuario ,calificacion: calificacion, descripcion: descripcion}, // Datos a enviar al servidor
+                    success: function(response) {
+                        // La solicitud se ha completado correctamente
+                        console.log(response); // Puedes imprimir la respuesta del servidor en la consola
+                    },
+                    error: function(xhr, status, error) {
+                        // Ocurrió un error durante la solicitud
+                        console.error(error); // Imprime el error en la consola
+                    }
+                });
+            }
 
             closeButton.addEventListener("click", function() {
                 modal.hide();
             });
 
             likeButton.addEventListener("click", function() {
-                // Aquí puedes agregar la lógica para enviar el comentario y procesarlo como "Me gusta"
-                // Puedes mostrar un mensaje de confirmación utilizando un alert o una notificación en lugar de la consola
+                // Agregar la lógica para enviar el comentario y procesarlo como "Me gusta"
+                enviarCalificacion(1, textarea.value);
                 console.log("Comentario enviado correctamente. Me gusta");
                 textarea.value = ""; // Limpiar el textarea después de enviar el comentario
                 modal.hide();
@@ -292,8 +309,8 @@ $ventaTabla = $conn->query($comandoSQLVentas);
             });
 
             dislikeButton.addEventListener("click", function() {
-                // Aquí puedes agregar la lógica para enviar el comentario y procesarlo como "No me gusta"
-                // Puedes mostrar un mensaje de confirmación utilizando un alert o una notificación en lugar de la consola
+                // Agregar la lógica para enviar el comentario y procesarlo como "No me gusta"
+                enviarCalificacion(0, textarea.value);
                 console.log("Comentario enviado correctamente. No me gusta");
                 textarea.value = ""; // Limpiar el textarea después de enviar el comentario
                 modal.hide();
