@@ -62,3 +62,8 @@ footer {
     border-radius: 8px;
     background-color: var(--Secundario);
 }
+.button{
+  background-color: #FE8744;
+  color: #F9F9F9;
+  
+}

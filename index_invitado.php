@@ -187,8 +187,8 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary"><i class="bi bi-hand-thumbs-up"></i>Me gusta</button>
-                                <button type="button" class="btn btn-secondary"><i class="bi bi-hand-thumbs-down"></i>No me gusta</button>
+                                <button type="button" class="btn btn-primary"><i class="bi bi-hand-thumbs-up"></i></button>
+                                <button type="button" class="btn btn-secondary"><i class="bi bi-hand-thumbs-down"></i></button>
                             </div>
                         </div>
                     </div>
