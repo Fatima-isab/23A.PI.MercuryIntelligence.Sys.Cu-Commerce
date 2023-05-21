@@ -36,22 +36,24 @@ if ($producto) {
 
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="assets/styles/producto.css">
+<link rel="stylesheet" href="./assets/styles/producto.css">
 <body>
     <header>
-        <h1><span>-</span> Comprar Producto <span>-</span></h1>
+        <h1><span></span> Comprar Producto <span></span></h1>
     </header>
     <main>
-        <section>
-            <div class="articulo">
+        <section class="producto">
+            <div class="prod">
                 <div class="imagen">
+                    <h2><?php echo $producto['Nombre']?></h2>
                     <img src="assets/<?php echo $producto['Ruta_Foto']?>" alt="">
                 </div>
                 <div class="texto">
-                    <h2><?php echo $producto['Nombre']?></h2>
-                    <p><?php echo $producto['Precio']?></p>
-                    <p><?php echo $producto['Descripcion']?></p>
-                    <p><?php echo $producto['FCaducidad']?></p>
+                    <p><?php echo "Precio: ".$producto['Precio']?></p>
+                    <p><?php echo "Descripción: ".$producto['Descripcion']?></p>
+                    <p><?php echo "Caducidad: ".$producto['FCaducidad']?></p>
+                    <p><?php echo "Existencia: ".$producto['Inventario']?></p>
+                    
                 </div>
             </div>
         </section>

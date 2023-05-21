@@ -10,9 +10,9 @@ NAVARRO GUTIÉRREZ ESTHEFANI
   //session_destroy();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "cris";
-$password = "adminroot";
-$dbname = "nueva_cucomerce";
+$username = "root";
+$password = "";
+$dbname = "e_commerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -73,74 +73,14 @@ $result = $conn->query($sql);
             
             <ul class="nav">
                 <li class="nav-item mt-5">
-                    <a href="log_in.php">
+                    <a href="sign_up.php">
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
                 </li>
                 <li class="nav-item mt-5">
                      
                 </li>
-            </ul>
-                <div id="modal" class="modal">
-                    <div class="modal-content" style="">
-                        <span class="cerrar">&times;</span>
-                        <h2 style="">Publica tu Producto</h2>
-                        <section>
-                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
-                                class="formulario" enctype="multipart/form-data">
-
-                                <label for="image">Selecciona imagen del producto</label>
-                                <input type="file" name="image" id="Ruta_Imagen" required style="border-radius: 8px;
-                                     border: 3px;">
-                                <div class="parte1">
-                     
-                                <label for="Nombre"></label>
-                                <br>
-                                <input type="text" name="title" id="Nombre" required placeholder="Nombre del Producto">
-
-                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
-                                </div>
-                                <label for="Categoria">Categoria: </label>
-                                <select id="cate">
-                                    <option value="opcion1">Comida</option>
-                                    <option value="opcion2">Tecnologia</option>
-                                    <option value="opcion3">Educacion</option>
-                                </select>
-                                <br>
-                                <br>
-
-                                <label for="Descripcion">Descripcion: </label>
-                                <textarea name="intro" id="Descripcion" placeholder="Descripcion del producto"
-                                    style="border-radius: 8px;"></textarea>
-
-                                <label for="Precio">Precio: </label>
-                                <input type="number" id="Precio" name="Precio" step="1" min="0" required>
-                                <br>
-                                <br>
-
-                                <label for="caducidad">Caducidad: </label>
-                                <input type="date" id="FCaducidad" name="FCaducidad">
-
-                                <?php if(isset($error)):?>
-                                <p class="error">
-                                    <?php echo $error;?>
-                                </p>
-                                <?php elseif(isset($msg)):?>
-                                <p class="success">
-                                    <?php echo $msg;?>
-                                </p>
-                                <?php endif;?>
-
-                                <input type="submit" value="Publicar">
-                                <input type="reset" value="Descartar">
-                                <br>
-                                <br>
-                                <label for=""></label>
-                            </form>
-                        </section>
-                    </div>
-                </div>
-
+</ul>
             
         </div>
         </div>
