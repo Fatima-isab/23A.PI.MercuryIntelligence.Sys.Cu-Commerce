@@ -38,6 +38,16 @@ CREATE TABLE vendedores (
 ) COMMENT = 'Tabla para el almacenamiento de los vendedores del sistema';
 ALTER TABLE vendedores AUTO_INCREMENT = 1;
 
+DROP TABLE IF EXISTS administradores;
+CREATE TABLE administradores (
+  IdAdmin INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, autoincrementable, ',
+  IdPersona INT NOT NULL  COMMENT 'Clave forenea de la tabla personas ',  
+  PRIMARY KEY (IdAdmin),
+  UNIQUE (IdPersona),
+  FOREIGN KEY(IdPersona) REFERENCES personas(IdPersonas) ON UPDATE CASCADE
+) COMMENT = 'Tabla para el almacenamiento de los vendedores del sistema';
+ALTER TABLE vendedores AUTO_INCREMENT = 1;
+
 DROP TABLE IF EXISTS clientes;
 CREATE TABLE clientes (
   IdClientes INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, autoincrementable, ',

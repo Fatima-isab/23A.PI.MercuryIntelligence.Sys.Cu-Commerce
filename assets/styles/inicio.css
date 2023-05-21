@@ -78,9 +78,12 @@ footer{
   border-radius: 8px; /* Añadimos un borde redondeado */
 }
 .contenedor-icono i{
-    color: #b1ada8;
+    font-size:30px ;
+  color: #A4A2A2;
 }
-
+.lupa{
+    
+}
 /* Formulario */
 * Handle */
 ::-webkit-scrollbar-thumb {
