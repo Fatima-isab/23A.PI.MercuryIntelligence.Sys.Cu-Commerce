@@ -16,7 +16,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
     session_destroy();
     die();
  }
-session_destroy();
+//session_destroy();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
@@ -139,6 +139,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Utiles</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link cerrar-sesion" href="./cerrar.php">Cerrar sesión</a>
                                         </li>
                                     </ul>
                                 </div>
