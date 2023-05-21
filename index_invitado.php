@@ -68,7 +68,8 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                             <form class="d-flex w-100 " role="search">
                                 <input class="form-control me-2" type="search" placeholder="Buscar..."
                                     aria-label="Search" id="Buscador" autocomplete="off">
-                                <button class="btn btn-outline-success" type="submit">Ir</button>
+                                
+                                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                             </form>
                         </div>
                     </nav>
