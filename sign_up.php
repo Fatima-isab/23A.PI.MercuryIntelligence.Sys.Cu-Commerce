@@ -31,12 +31,15 @@ if(isset($_SESSION['usuario'])){
             <div class="trasera">
 
                 <div class="traseraLogin">
+                    <img src="assets/img/Logo.png">
+                    <h4>El Comercio entre nosotros</h4>
                     <h3>¿Tienes una cuenta creada?</h3>
-                    
                     <button id="btn-iniciar-sesion">Iniciar sesión</button>
                 </div>
 
                 <div class="traseraSign">
+                <img src="assets/img/Logo.png">
+                    <h4>El Comercio entre nosotros</h4>
                     <h3>¿No tienes una cuenta creada?</h3>
                     <button id="btn-registro">Registrate</button>
                 </div>
