@@ -90,11 +90,14 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     <button onclick="abrirModal()" class="btn btn-outline-secondary id="agregar">Publicar</button>
 
                 </li>
-                
                 <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <button id="btn_notif" class="btn btn-outline-secondary">Notificaciones</button>
+                  <div class="contenedor-icono">
+                    <button class="btn btn-outline">
+                        <i class="bi bi-bell-fill" width="30px" height="30"></i></button>
+                </div>
                     </a>
+            
                     <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
                     <!-- codigo PHP para imprimir las notificaciones     -->
                     <?php
@@ -223,8 +226,8 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Me gusta</button>
-                                <button type="button" class="btn btn-secondary">No me gusta</button>
+                            <button type="button" class="btn btn-primary"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button type="button" class="btn btn-secondary"><i class="bi bi-hand-thumbs-down"></i></button>
                             </div>
                         </div>
                     </div>
