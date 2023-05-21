@@ -6,6 +6,8 @@ include 'conexion_sign.php';
 
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
+$contrasena = hash('sha12', $contrasena);
+
 
 $validar_login = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo' 
 and contrasena='$contrasena'");

@@ -11,7 +11,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -80,7 +80,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
             
             <ul class="nav">
                 <li class="nav-item mt-5"> <!-- Botón Iniciar sesión -->
-                    <a href="log_in.php">
+                    <a href="sign_up.php">
                         <button class="btn btn-outline-secondary">Iniciar sesión</button>
                     </a>
                 </li>

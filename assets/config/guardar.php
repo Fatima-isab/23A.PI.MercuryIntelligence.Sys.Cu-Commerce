@@ -13,7 +13,7 @@ $ruta_imagen = '../img/' . $imagen;
 move_uploaded_file($imagen_tmp, $ruta_imagen);
 
 // Conecta a la base de datos (asumiendo MySQL)
-$conexion = mysqli_connect('localhost', 'root', '', 'e_commerce');
+$conexion = mysqli_connect('localhost', 'root', '12345', 'e_commerce');
 
 // Inserta los datos en la tabla correspondiente
 $query = "INSERT INTO productos (IdVendedor, Nombre, Ruta_Foto, Descripcion, Precio, Categoria, FCaducidad, Inventario) VALUES 

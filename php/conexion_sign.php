@@ -1,7 +1,7 @@
 <?php
 @include 'config.php';
 
-$conexion = mysqli_connect("localhost", "root", "", "perfiles");
+$conexion = mysqli_connect("localhost", "root", "12345", "e_commerce");
 
 /*
 if($conexion){
