@@ -13,9 +13,7 @@
 }
 
 /*Estilo del header*/
-header{
-    height: 2vw;
-}
+
 
 #CtnHead {
     display: flex;
@@ -38,13 +36,11 @@ header{
 #NomPrin{
     display: flex;
     flex-direction: row;
-    align-items: left;
-    justify-content: left;
+    align-items: center;
+    justify-content: center;
 }
 
-.container-fluid{
-    margin-top: 2000%;
-}
+
 #BarBusque {
     
     display:grid;
