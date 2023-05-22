@@ -19,7 +19,7 @@ if (mysqli_num_rows($verificar_correo) > 0) {
     ';
     exit();
 } else { // Correo único - se verificó ya
-    $query = "INSERT INTO personas(Nombres, correo, contrasena) 
+    $query = "INSERT INTO personas (Nombres, correo, contrasena) 
     VALUES('$Nombres', '$correo', '$contrasena')"; 
     $ejecutar = mysqli_query($conexion, $query);
 }

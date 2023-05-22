@@ -21,9 +21,16 @@ if(isset($_GET['art'])){
 $query = "SELECT * FROM productos WHERE IdProductos = $art_id ";
 $result = mysqli_query($conn, $query);
 $producto = mysqli_fetch_assoc($result);
-$query2 = "SELECT * FROM personas WHERE correo = $_SESSION[usuario] ";
-$result2 = mysqli_query($conn, $query2);
-$vendedor = mysqli_fetch_assoc($result2);
+
+$idv=$producto['IdVendedor'];
+
+$res=mysqli_query($conn, "SELECT idpersona FROM vendedores WHERE idvendedores=$idv");
+$row = mysqli_fetch_assoc($res);
+$idp = $row['idpersona'];
+
+$resultado = mysqli_query($conn, "SELECT * FROM personas WHERE idpersonas=$idp");
+$vendedor = mysqli_fetch_assoc($resultado);
+
 
 // Verificar si se encontró un artículo con el ID especificado
 if ($producto) {
@@ -49,7 +56,7 @@ if ($producto) {
         <section class="producto">
             <div class="prod">
                 <div class="imagen">
-                <p><?php echo "Precio: ".$vendedor['Nombres']?></p>
+                <p><?php echo "Vendedor: ".$vendedor['Nombres']?></p>
                     <h2><?php echo $producto['Nombre']?></h2>
                     <img src="assets/<?php echo $producto['Ruta_Foto']?>" alt="">
                 </div>
@@ -58,6 +65,7 @@ if ($producto) {
                     <p><?php echo "Descripción: ".$producto['Descripcion']?></p>
                     <p><?php echo "Caducidad: ".$producto['FCaducidad']?></p>
                     <p><?php echo "Existencia: ".$producto['Inventario']?></p>
+                    <p><?php echo "Contacto del Vendedor: ".$vendedor['correo']?></p>
                     
                 </div>
             </div>

@@ -11,7 +11,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "";
 $dbname = "e_commerce";
 
 // Crear conexión

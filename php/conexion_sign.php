@@ -1,8 +1,7 @@
 <?php
 
-<<<<<<< HEAD
 
-$conexion = mysqli_connect("localhost", "root", "12345", "e_commerce");
+$conexion = mysqli_connect("localhost", "root", "", "e_commerce");
 
 /*
 if($conexion){
