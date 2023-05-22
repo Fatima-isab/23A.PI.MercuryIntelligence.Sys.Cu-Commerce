@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "e_commerce";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -58,12 +58,20 @@ if ($producto) {
                     <p><?php echo "Descripción: ".$producto['Descripcion']?></p>
                     <p><?php echo "Caducidad: ".$producto['FCaducidad']?></p>
                     <p><?php echo "Existencia: ".$producto['Inventario']?></p>
-                    
+                     <div class="compra"> <!-- Botón Compra -->
+     
+				<div class="botones">
+					<a href="#" class="boton primario"><i class="bi bi-coin"></i>Comprar</a>
                 </div>
             </div>
+           
+					
+				</div>
+			</div>
         </section>
     </main>
     <div class="clear"></div>
+    
     <footer>
         <p>Mercury Intelligent</p>
     </footer>

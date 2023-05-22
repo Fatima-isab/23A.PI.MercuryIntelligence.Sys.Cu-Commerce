@@ -11,8 +11,8 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
-$dbname = "e_commerce";
+$password = "";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -89,7 +89,10 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                   <div class="contenedor-icono">
                     <button class="btn btn-outline">
-                        <i class="bi bi-bell-fill" width="30px" height="30"></i></button>
+                       <span id="cantidad"> 0</span> <i class="bi bi-bell-fill" width="30px" height="30"></i> </h4>
+        <ul id="listado">
+
+        </ul></button>
                 </div>
                     </a>
 
