@@ -158,7 +158,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                         <h2 style="">Publica tu Producto</h2>
                         <section>
                             <form action="assets/config/guardar.php" method="post"
-                                class="formulario" enctype="multipart/form-data">
+                                class="formulario" enctype="multipart/form-data" onsubmit="return validarFormulario()">
 
                                 <label for="image">Selecciona imagen del producto</label>
                                 <input type="file" name="Ruta_Foto" id="Ruta_Imagen" required style="border-radius: 8px;
@@ -181,12 +181,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                 <input type="date" id="FCaducidad" name="FCaducidad">
                                 <br>
 
-                                <p>Categoria: </p>
-                                <select id="Categoria">
-                                    <option value="opcion1">Comida</option>
-                                    <option value="opcion2">Utiles</option>
-                                    <option value="opcion3">Ropa</option>
-                                </select>
+                                <p>Categoria (Comida, Utiles, Ropa): </p>
+                                <input type="text" name="Categoria" id="Categoria" required placeholder="(Comida, Utiles, Ropa)">
+
                                 <br>
 
                                 <p>Piezas Disponibles</p>
@@ -319,7 +316,25 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                 modal.hide();
                 alert("¡Gracias por tu comentario! Se ha enviado correctamente como 'No me gusta'.");
             });
+
         });
+
+        function validarFormulario() {
+      var inputTexto = document.getElementById("Categoria");
+      var palabrasPermitidas = ["Comida", "Utiles", "Ropa"]; // Lista de palabras permitidas
+
+      // Verificar si el valor del campo de entrada de texto contiene una de las palabras permitidas
+      for (var i = 0; i < palabrasPermitidas.length; i++) {
+        if (inputTexto.value.toLowerCase().indexOf(palabrasPermitidas[i].toLowerCase()) !== -1) {
+          return true; // El formulario se puede enviar
+        }
+      }
+
+      // Si no se encontró ninguna palabra permitida, mostrar un mensaje de error y evitar el envío del formulario
+      alert("El texto debe contener al menos una de las palabras permitidas: " + palabrasPermitidas.join(", "));
+      return false;
+    }
+
     </script>
 </body>
 </html>
