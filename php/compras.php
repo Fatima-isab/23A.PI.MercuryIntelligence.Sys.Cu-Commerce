@@ -3,7 +3,7 @@ function agregar_folio($IdProductos, $IdClientes) {
   // Establecer la conexión con la base de datos
   $servername = "localhost";
   $username = "root";
-  $password = "12345";
+  $password = "12345678";
   $dbname = "e_commerce";
 
   // Crear la conexión

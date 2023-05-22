@@ -47,7 +47,7 @@ header{
 }
 #BarBusque {
     
-    display: flex;
+    display:grid;
     justify-content: center;
 }
 #BarBusque nav{
