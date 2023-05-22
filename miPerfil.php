@@ -34,10 +34,6 @@ if ($conn->connect_error) {
 $sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
 $result = $conn->query($sql);
 
-// $idUsuario='1';// Variable de test.. usuario no 1.
-$idUsuario=$_SESSION['IdPersonas'];
-$comandoSQLVentas = "SELECT f.Mensaje FROM folios f LEFT JOIN clientes c ON f.IdCliente = c.IdClientes LEFT JOIN vendedores v ON f.IdVendedor = v.IdVendedores WHERE c.IdPersona = '$idUsuario' OR v.IdPersona = '$idUsuario'";// Consulta de las notificaciones relacionadas con el usuario
-$ventaTabla = $conn->query($comandoSQLVentas);
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -241,6 +237,7 @@ text-align: center;
             <div>
                 <h1 class="publicado1">Productos publicados</h1>
                 <section class="container">
+                    
             <?php foreach($result as $productos): ?>
             <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
             <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
@@ -265,3 +262,5 @@ text-align: center;
 </body>
  </body>
  </html>
+
+ 

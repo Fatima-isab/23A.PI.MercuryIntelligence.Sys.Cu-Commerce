@@ -9,7 +9,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
  -->
  <?php
  session_start();
-
+ include 'login_usuario.php';
  if(!isset($_SESSION['usuario'])){
 
     header("location: index_invitado.php");
@@ -131,9 +131,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                 <div class="collapse navbar-collapse" id="navbarNav">
                                     <ul class="navbar-nav">
                                     <li class="nav-item">
-                                            <a class="nav-link disabled" aria-current="page">Bienvenido <?php echo $_SESSION['usuario'];?> </a>
+                                            <a class="nav-link disabled" aria-current="page">Bienvenido <?php echo $_SESSION['IdPersonas'];?> </a>
                                             <br>
-                                            <a href="miPerfil.php?id=<?php echo $_SESSION['IdPersonas'];?>">Mi perfil</a>
+                                            <a href="miPerfil.php?id=<?php echo $_SESSION['id'];?>">Mi perfil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link disabled" aria-current="page">Categorias</a>
