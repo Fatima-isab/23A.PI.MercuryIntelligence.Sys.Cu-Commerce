@@ -21,17 +21,28 @@
 
 #Logo h5 {
     font-size: 2.2vh;
+    margin-top: 3%;
+    font-family: 'Overpass', sans-serif;
+    
 }
 
 #Logo img {
-    width: 14vh;
+    width: 15vh;
+    margin-top: 10%;
+    margin-left: 5%;
 }
-
+#NomPrin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 #NomPrin h4 {
     font-size: 5vh;
-    margin-left: 22%;
+   margin-right: 3%;
+   margin-left: 3%;
+    font-family: 'Overpass', sans-serif;
 }
-
 #BarBusque {
     display: flex;
     justify-content: center;
@@ -48,6 +59,13 @@
 .btn{
     margin-right: 0.5rem;
     margin-left: 0.5rem;
+}
+
+#Ubi{
+    text-align: center;
+}
+#IniSes{
+    margin-top: 19%;
 }
 
 /* Estilo del Main */
