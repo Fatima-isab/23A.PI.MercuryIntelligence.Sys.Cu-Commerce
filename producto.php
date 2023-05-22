@@ -5,14 +5,14 @@
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345";
 $dbname = "e_commerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    header('Location: index.php');
+    header('Location: index_inivitado.php');
     exit();
 }
 
@@ -52,7 +52,7 @@ function agregar_folio($IdProductos, $IdClientes) {
     // Establecer la conexión con la base de datos
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "12345";
     $dbname = "e_commerce";
   
     // Crear la conexión

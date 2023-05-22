@@ -47,18 +47,18 @@ if(isset($_SESSION['Nombres'])){
 
             <div class="contenedor_registro">
 
-                <form action="php/login_usuario_be.php" method="POST" class="formulario_login">
+                <form action="php/login_usuario_be.php" method="POST" class="formulario_login" >
                     <h2>Iniciar sesión</h2>
-                    <input type="text" placeholder="Correo electronico" name="correo" >
+                    <input type="text" placeholder="Correo electronico" name="correo">
                     <input type="password" placeholder="Contraseña" name="contrasena"> 
                     <button>Iniciar</button>
                 </form>
 
                 <form  action="php/registro_usuario_be.php" method="POST" class="formulario_sign">
                     <h2>Registro</h2>
-                    <input type="text" placeholder="Nombre completo" name="Nombres">
-                    <input type="text" placeholder="Correo institucional" name="correo">
-                    <input type="password" placeholder="Contraseña" name="contrasena">
+                    <input type="text" placeholder="Nombre completo" name="Nombres" required>
+                    <input type="text" placeholder="Correo institucional" name="correo"required>
+                    <input type="password" placeholder="Contraseña" name="contrasena" required>
                     <button>Registrarse</button>
 
                 </form>
