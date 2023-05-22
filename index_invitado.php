@@ -11,7 +11,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345678";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -61,7 +61,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
             <!-- Barra de navegación con el titulo en grande, con la barra de navegación y el botón de inicio de sesión -->
             <div id="NomBar" class="col-sm-8 col-md-8 col-lg-6 col-xl-6">
                 <div id="NomPrin">
-                    <h4>Cu - Commerce </h4>
+                <hr style="border-color: red; border-width: 3px; width: 23%; margin-left: 13%; margin-top: 5%;">
+                    <h4 style="margin-top: 3%;">Cu - Commerce </h4>
+                    <hr style="border-color: red; border-width: 3px; width: 23%; margin-top: 5%;">
                 </div>
                 <div id="BarBusque">
                     <nav class="navbar  ">
@@ -82,7 +84,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
             <ul class="nav">
                 <li class="nav-item mt-5"> <!-- Botón Iniciar sesión -->
                 <a href="sign_up.php">
-                        <button class="btn btn-outline-secondary">Iniciar sesión</button>
+                        <button class="btn btn-outline-secondary" id="IniSes">Iniciar sesión</button>
                     </a>
                 </li>
                 <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
@@ -117,9 +119,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                 </li>
             </ul>
                 <div id="modal" class="modal">
-                    <div class="modal-content" style="">
+                    <div class="modal-content" >
                         <span class="cerrar">&times;</span>
-                        <h2 style="">Publica tu Producto</h2>
+                        <h2 >Publica tu Producto</h2>
                         <section>
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
                                 class="formulario" enctype="multipart/form-data">

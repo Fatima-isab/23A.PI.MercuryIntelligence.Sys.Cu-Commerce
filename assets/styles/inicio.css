@@ -21,17 +21,28 @@
 
 #Logo h5 {
     font-size: 2.2vh;
+    margin-top: 3%;
+    font-family: 'Overpass', sans-serif;
+    
 }
 
 #Logo img {
-    width: 14vh;
+    width: 15vh;
+    margin-top: 10%;
+    margin-left: 5%;
 }
-
+#NomPrin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 #NomPrin h4 {
     font-size: 5vh;
-    margin-left: 22%;
+   margin-right: 3%;
+   margin-left: 3%;
+    font-family: 'Overpass', sans-serif;
 }
-
 #BarBusque {
     display: flex;
     justify-content: center;
@@ -50,18 +61,18 @@
     margin-left: 0.5rem;
 }
 
-/* Estilo del Main */
-main{
-
+#Ubi{
+    text-align: center;
 }
+#IniSes{
+    margin-top: 19%;
+}
+
+
 #Ubi{
     text-align: center;
 }
 
-
-/*Estilo del footer*/
-footer{
-}
 
 /* Boton Publicar */
 #agregar, #publicar{
@@ -80,9 +91,6 @@ footer{
 .contenedor-icono i{
     font-size:30px ;
   color: #A4A2A2;
-}
-.lupa{
-    
 }
 /* Formulario */
 * Handle */
