@@ -52,7 +52,7 @@ function agregar_folio($IdProductos, $IdClientes) {
     // Establecer la conexión con la base de datos
     $servername = "localhost";
     $username = "root";
-    $password = "12345";
+    $password = "12345678";
     $dbname = "e_commerce";
   
     // Crear la conexión
@@ -77,8 +77,8 @@ function agregar_folio($IdProductos, $IdClientes) {
     }
   
     // Insertar el nuevo folio en la tabla "folios"
-    $sql = "INSERT INTO folios (IdProducto, IdCliente, IdVendedor) VALUES ($IdProductos, $IdClientes, $IdVendedor)";
-    $conex->query($sql);
+    $sql2 = "INSERT INTO folios (IdProducto, IdCliente, IdVendedor) VALUES ($IdProductos, $IdClientes, $IdVendedor)";
+    $conex->query($sql2);
   
     // Obtener el ID generado para el nuevo folio
     $folioId = $conex->insert_id;
@@ -87,9 +87,13 @@ function agregar_folio($IdProductos, $IdClientes) {
     $mensaje = modificar_mensaje($folioId);
   
     // Actualizar el mensaje en la tabla "folios"
-    $sql = "UPDATE folios SET Mensaje = CONCAT('¡Querido usuario, se ha generado un encargo con éxito! ', '$mensaje') WHERE IdFolios = $folioId";
-    $conex->query($sql);
-  
+    $sql3 = "UPDATE folios SET Mensaje = CONCAT('¡Querido usuario, se ha generado un encargo con éxito! ', '$mensaje') WHERE IdFolios = $folioId";
+    $conex->query($sql3);
+    
+    // Actualizar el inventario del producto
+    $sql3 = "select e_commerce.cambiar_inventario($IdProductos, -1);";
+    $conex->query($sql3);
+
     // Cerrar la conexión
     $conex->close();
   
