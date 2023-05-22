@@ -11,6 +11,7 @@ CREATE TABLE personas (
   Nombres VARCHAR(45) NOT NULL COMMENT 'Nombre(s) de la persona a registrar',
   correo VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
   contrasena VARCHAR(45) DEFAULT NULL COMMENT 'Contrase;a de la persona',
+  rol VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
   UNIQUE (correo),
   PRIMARY KEY (IdPersonas)
 ) COMMENT = 'Tabla para el almacenamiento de los datos generales de las personas que se agregarán al sistema.';
@@ -33,16 +34,6 @@ CREATE TABLE vendedores (
   IdVendedores INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, autoincrementable, ',
   IdPersona INT NOT NULL  COMMENT 'Clave forenea de la tabla personas ',  
   PRIMARY KEY (IdVendedores),
-  UNIQUE (IdPersona),
-  FOREIGN KEY(IdPersona) REFERENCES personas(IdPersonas) ON UPDATE CASCADE
-) COMMENT = 'Tabla para el almacenamiento de los vendedores del sistema';
-ALTER TABLE vendedores AUTO_INCREMENT = 1;
-
-DROP TABLE IF EXISTS administradores;
-CREATE TABLE administradores (
-  IdAdmin INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, autoincrementable, ',
-  IdPersona INT NOT NULL  COMMENT 'Clave forenea de la tabla personas ',  
-  PRIMARY KEY (IdAdmin),
   UNIQUE (IdPersona),
   FOREIGN KEY(IdPersona) REFERENCES personas(IdPersonas) ON UPDATE CASCADE
 ) COMMENT = 'Tabla para el almacenamiento de los vendedores del sistema';
