@@ -133,7 +133,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                     <li class="nav-item">
                                             <a class="nav-link disabled" aria-current="page">Bienvenido <?php echo $_SESSION['usuario'];?> </a>
                                             <br>
-                                            <a href="perfiles.php?id=<?php echo $_SESSION['IdPersonas'];?>">Mi perfil</a>
+                                            <a href="miPerfil.php?id=<?php echo $_SESSION['IdPersonas'];?>">Mi perfil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link disabled" aria-current="page">Categorias</a>

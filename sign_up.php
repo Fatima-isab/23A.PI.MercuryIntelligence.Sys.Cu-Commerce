@@ -66,6 +66,17 @@ if(isset($_SESSION['Nombres'])){
         </div>
   
     </main>
+    <script>
+        const correo = document.querySelector("correo");
+        const btn = document.querySelector("buttom");
+        
+        let regExp = /^[^ ]+@alumnos.udg.mx$/;
+        function check(){
+            if(correo.value.match(refExp)){
+            }
+        }
+        
+    </script>
     <script src="assets/scripts/sing_up.js"></script>
 </body>
 </html>

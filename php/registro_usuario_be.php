@@ -8,8 +8,14 @@ $contrasena = $_POST['contrasena'];
 $contrasena = hash('sha512', $contrasena);
 
 
-$query = "INSERT INTO personas (Nombres, correo, contrasena) 
-VALUES('$Nombres', '$correo', '$contrasena')"; 
+if (strpos($correo, '@alumnos.udg.mx') !== false) {
+    $query = "INSERT INTO personas (Nombres, correo, contrasena) 
+    VALUES('$Nombres', '$correo', '$contrasena')"; 
+} else {
+  echo "Solo se permite el registro con correo institucional";
+}
+
+
 
 
 
@@ -18,7 +24,7 @@ $verificar_correo = mysqli_query($conexion, "SELECT * FROM personas WHERE correo
 if (mysqli_num_rows($verificar_correo) > 0) {
     echo '
     <script>
-    alert("El correo ya se ha registrado");
+    ("El correo ya se ha registrado");
     window.location = "../sign_up.php";
     </script>
     ';
@@ -32,7 +38,7 @@ if ($ejecutar) {
     </script>';
 } else {
     echo '<script>
-    alert("No se pudo registrar, inténtalo más tarde");
+    alert("No se pudo registrar, inténtalo más tarde y asegurate de usar tu correo institucional");
     window.location = "../sign_up.php";
     </script>';
 }
