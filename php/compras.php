@@ -2,9 +2,9 @@
 function agregar_folio($IdProductos, $IdClientes) {
   // Establecer la conexión con la base de datos
   $servername = "localhost";
-  $username = "tu_usuario";
-  $password = "tu_contraseña";
-  $dbname = "tu_basededatos";
+  $username = "root";
+  $password = "12345";
+  $dbname = "e_commerce";
 
   // Crear la conexión
   $conn = new mysqli($servername, $username, $password, $dbname);

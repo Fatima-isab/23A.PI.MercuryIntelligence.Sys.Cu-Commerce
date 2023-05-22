@@ -2,7 +2,7 @@
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345";
 $dbname = "nueva_cucomerce";
 
 // Crear conexión
