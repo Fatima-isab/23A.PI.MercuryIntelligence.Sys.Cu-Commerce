@@ -14,6 +14,7 @@ if(mysqli_num_rows($validar_login) > 0){
     $usuario = mysqli_fetch_assoc($validar_login); // Obtener los datos del usuario
     $_SESSION['IdPersonas'] = $usuario['IdPersonas']; // Guardar el IdPersonas(llave primaria del usuario) en la sesión
     $_SESSION ['usuario'] = $correo;
+    $id= $_SESSION['IdPersonas'];
     $query = "INSERT IGNORE INTO vendedores (IdPersona) VALUES ('$id')";
     mysqli_query($conexion, $query);
     header("location: ../inicio.php");

@@ -13,6 +13,10 @@
 }
 
 /*Estilo del header*/
+header{
+    height: 2vw;
+}
+
 #CtnHead {
     display: flex;
     flex-direction: row;
@@ -34,16 +38,15 @@
 #NomPrin{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
 }
-#NomPrin h4 {
-    font-size: 5vh;
-   margin-right: 3%;
-   margin-left: 3%;
-    font-family: 'Overpass', sans-serif;
+
+.container-fluid{
+    margin-top: 2000%;
 }
 #BarBusque {
+    
     display: flex;
     justify-content: center;
 }

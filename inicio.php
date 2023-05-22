@@ -20,7 +20,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345678";
+$password = "12345";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -62,15 +62,13 @@ $ventaTabla = $conn->query($comandoSQLVentas);
         <div id="CtnHead" class="row shadow">
             <!-- aqui va el logo de la plataforma -->
             <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                <img src="assets/img/Logo.png">
-                <h5>El comercio entre nosotros</h5>
+                <img src="assets/img/Logo.png" style="width: 50px;">
+                <h5>Cu-Commerce</h5>
             </div>
             <!-- Barra de navegación con el titulo en grande, con la barra de navegación y el botón de inicio de sesión -->
             <div id="NomBar" class="col-sm-8 col-md-8 col-lg-6 col-xl-6">
                 <div id="NomPrin">
-                    <hr style="border-color: red; border-width: 3px; width: 23%; margin-left: 13%; margin-top: 5%;">
-                    <h4 style="margin-top: 3%;">Cu - Commerce </h4>
-                    <hr style="border-color: red; border-width: 3px; width: 23%; margin-top: 5%;">
+                   
                 </div>
                 <div id="BarBusque">
                     <nav class="navbar  ">
