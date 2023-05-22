@@ -1,6 +1,6 @@
 <?php
     // Conexión a la base de datos
-    $conexion = mysqli_connect("localhost", "root", "12345", "e_commerce");
+    $conexion = mysqli_connect("localhost", "root", "12345678", "e_commerce");
 
     // Obtener el término de búsqueda del formulario
     $buscar = $_GET['Buscar'];

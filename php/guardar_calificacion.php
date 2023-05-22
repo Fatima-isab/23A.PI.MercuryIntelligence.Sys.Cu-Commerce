@@ -2,7 +2,7 @@
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "12345678";
 $dbname = "e_commerce";
 
 // Crear conexión
