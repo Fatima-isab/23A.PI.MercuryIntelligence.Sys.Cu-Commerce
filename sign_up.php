@@ -8,7 +8,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
  -->
 <?php
 session_start();
-if(isset($_SESSION['usuario'])){
+if(isset($_SESSION['Nombres'])){
     header("location: inicio.php");
 }
 ?>

@@ -5,7 +5,7 @@ include 'conexion_sign.php';
 $Nombres = $_POST['Nombres'];
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
-$contrasena = hash('sha12', $contrasena);
+$contrasena = hash('sha512', $contrasena);
 
 
 $query = "INSERT INTO personas (Nombres, correo, contrasena) 

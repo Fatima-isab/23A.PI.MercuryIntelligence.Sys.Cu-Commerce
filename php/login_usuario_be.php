@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 include 'conexion_sign.php';
 
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
-$contrasena = hash('sha12', $contrasena);
+$contrasena = hash('sha512', $contrasena);
 
 
 $validar_login = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo' 
@@ -17,7 +17,6 @@ if(mysqli_num_rows($validar_login) > 0){
     $id = $_SESSION['IdPersonas'];
     $query = "INSERT IGNORE INTO vendedores (IdPersona) VALUES ('$id')";
     mysqli_query($conexion, $query);
-    
     header("location: ../inicio.php");
     exit;
 }else{
