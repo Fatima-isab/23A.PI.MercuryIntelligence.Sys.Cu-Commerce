@@ -3,27 +3,31 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "e_commerce";
+$dbname = "nueva_cucomerce";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if(!$conn){
+if ($conn->connect_error) {
     header('Location: index.php');
+    exit();
 }
 
-//Obtener el id del articulo seleccionado
-if(isset($_GET['art'])){
+// Obtener el id del artículo seleccionado
+if (isset($_GET['art'])) {
     $art_id = $_GET['art'];
 }
 
+// Validar y escapar el valor de $art_id para evitar inyección SQL
+$art_id = $conn->real_escape_string($art_id);
 
-$query = "SELECT * FROM productos WHERE IdProductos = $art_id ";
-$result = mysqli_query($conn, $query);
-$producto = mysqli_fetch_assoc($result);
-$query2 = "SELECT * FROM personas WHERE correo = $_SESSION[usuario] ";
-$result2 = mysqli_query($conn, $query2);
-$vendedor = mysqli_fetch_assoc($result2);
+$query = "SELECT * FROM productos WHERE IdProductos = '$art_id'";
+$result = $conn->query($query);
+$producto = $result->fetch_assoc();
+
+$query2 = "SELECT * FROM personas WHERE correo = '{$_SESSION['usuario']}'";
+$result2 = $conn->query($query2);
+$vendedor = $result2->fetch_assoc();
 
 // Verificar si se encontró un artículo con el ID especificado
 if ($producto) {
@@ -35,12 +39,12 @@ if ($producto) {
     exit();
 }
 
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="./assets/styles/producto.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <body>
     <header>
         <h1><span></span> Comprar Producto <span></span></h1>
@@ -58,13 +62,23 @@ if ($producto) {
                     <p><?php echo "Descripción: ".$producto['Descripcion']?></p>
                     <p><?php echo "Caducidad: ".$producto['FCaducidad']?></p>
                     <p><?php echo "Existencia: ".$producto['Inventario']?></p>
+                     <div class="compra"> <!-- Botón Compra -->
+     
+				<div class="botones">
+					<a href="#" class="boton primario" onclick="notificarCompra()"><i class="bi bi-coin"></i>Comprar</a>
                     
                 </div>
             </div>
+           
+					
+				</div>
+			</div>
         </section>
     </main>
     <div class="clear"></div>
+    
     <footer>
         <p>Mercury Intelligent</p>
     </footer>
+    <script src="assets/scripts/perfil.js"></script>
 </body>

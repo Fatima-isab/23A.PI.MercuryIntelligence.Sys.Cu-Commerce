@@ -68,6 +68,7 @@ footer {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
+    margin-left:20px;
 
     .boton {
         padding: 10px;
