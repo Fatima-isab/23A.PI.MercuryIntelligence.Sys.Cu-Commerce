@@ -3,7 +3,7 @@
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "nueva_cucomerce";
 
 // Crear conexión
@@ -45,7 +45,7 @@ function agregar_folio($IdProductos, $IdClientes) {
     // Establecer la conexión con la base de datos
     $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "";
     $dbname = "nueva_cucomerce";
   
     // Crear la conexión
@@ -112,16 +112,22 @@ function agregar_folio($IdProductos, $IdClientes) {
                     <p><?php echo "Descripción: ".$producto['Descripcion']?></p>
                     <p><?php echo "Caducidad: ".$producto['FCaducidad']?></p>
                     <p><?php echo "Existencia: ".$producto['Inventario']?></p>
-                     <div class="compra"> <!-- Botón Compra -->
-     
-				<div class="botones">
-					<a href="#" class="boton primario" onclick="notificarCompra()"><i class="bi bi-coin"></i>Comprar</a>
-                    
-                </div>
-            </div>
-           
+                
+            </div>  <!-- Botón Compra -->
 					
 				</div>
+                <input type="checkbox" id="btn-modal">
+	<label for="btn-modal" class="lbl-modal" >Comprar</label>
+	<div class="modal">
+		<div class="contenedor">
+			<header>¡Compra exitosa!</header>
+			<label for="btn-modal">X</label>
+			<div class="contenido">
+				<h3><!-- Agregar un titulo --></h3>
+				<p>Gracias por tu compra</p>
+			</div>
+		</div>
+</div>
 			</div>
         </section>
     </main>
