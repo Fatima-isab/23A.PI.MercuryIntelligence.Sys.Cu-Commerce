@@ -68,18 +68,11 @@
     margin-top: 19%;
 }
 
-/* Estilo del Main */
-main{
 
-}
 #Ubi{
     text-align: center;
 }
 
-
-/*Estilo del footer*/
-footer{
-}
 
 /* Boton Publicar */
 #agregar, #publicar{
@@ -98,9 +91,6 @@ footer{
 .contenedor-icono i{
     font-size:30px ;
   color: #A4A2A2;
-}
-.lupa{
-    
 }
 /* Formulario */
 * Handle */

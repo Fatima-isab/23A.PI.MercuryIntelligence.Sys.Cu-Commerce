@@ -11,7 +11,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345678";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -119,9 +119,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                 </li>
             </ul>
                 <div id="modal" class="modal">
-                    <div class="modal-content" style="">
+                    <div class="modal-content" >
                         <span class="cerrar">&times;</span>
-                        <h2 style="">Publica tu Producto</h2>
+                        <h2 >Publica tu Producto</h2>
                         <section>
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"
                                 class="formulario" enctype="multipart/form-data">
