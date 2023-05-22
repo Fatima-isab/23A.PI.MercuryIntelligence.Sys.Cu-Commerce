@@ -30,8 +30,16 @@ if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
 
+//Obtener el id del vendedor seleccionado
+if(isset($_GET['ven'])){
+    $ven_id = $_GET['ven'];
+}
+
+
+
 // Consulta para obtener los datos de la tabla
-$sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
+$sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario 
+FROM productos WHERE IdVendedor= $ven_id";
 $result = $conn->query($sql);
 
 
@@ -213,7 +221,7 @@ text-align: center;
 </style>
 <header>
 <header>
-        <h1>Iniciaste sesión como  <span class="iconos icon-home"></span></h1>
+        <h1>Perfil de <span class="iconos icon-home"></span></h1>
     </header>
 </header>
     <section class="seccion-perfil-usuario">
@@ -264,5 +272,3 @@ text-align: center;
 </body>
  </body>
  </html>
-
- 
