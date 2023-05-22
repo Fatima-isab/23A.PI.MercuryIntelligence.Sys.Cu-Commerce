@@ -132,13 +132,13 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                             <a class="nav-link disabled" aria-current="page">Categorias</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Comida</a>
+                                            <a class="nav-link" href="comida.php">Comida</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Ropa</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Utiles</a>
+                                            <a class="nav-link" href="comida.php">Utiles</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link cerrar-sesion" href="./cerrar.php">Cerrar sesión</a>
