@@ -1,37 +1,18 @@
 <?php
- session_start();
+    // Conexión a la base de datos
+    $conexion = mysqli_connect("localhost", "root", "", "e_commerce");
 
- if(!isset($_SESSION['usuario'])){
+    // Obtener el término de búsqueda del formulario
+    $buscar = $_GET['Buscar'];
 
-    header("location: index_invitado.php");
-    session_destroy();
-    die();
- }
-//session_destroy();
-// Configuración de la conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "e_commerce";
+    $sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, 
+    Inventario FROM productos WHERE Nombre ='$buscar'";
+    $result = $conexion->query($sql);
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Error en la conexión: " . $conn->connect_error);
-}
-
-// Consulta para obtener los datos de la tabla
-$sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, 
-Inventario FROM productos WHERE Categoria ='Comida'";
-$result = $conn->query($sql);
-
-// $idUsuario='1';// Variable de test.. usuario no 1.
-$idUsuario=$_SESSION['IdPersonas'];
-$comandoSQLVentas = "SELECT f.Mensaje FROM folios f LEFT JOIN clientes c ON f.IdCliente = c.IdClientes LEFT JOIN vendedores v ON f.IdVendedor = v.IdVendedores WHERE c.IdPersona = '$idUsuario' OR v.IdPersona = '$idUsuario'";// Consulta de las notificaciones relacionadas con el usuario
-$ventaTabla = $conn->query($comandoSQLVentas);
-?>
+ 
+    // Cerrar la conexión a la base de datos
+    mysqli_close($conexion);
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,10 +20,10 @@ $ventaTabla = $conn->query($comandoSQLVentas);
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="assets/styles/inicio.css">
+    <link rel="stylesheet" href="../assets/styles/inicio.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-Commerce</title>
-    <link rel="shortcut icon" href="assets/img/Logo.png">
+    <link rel="shortcut icon" href="../assets/img/Logo.png">
 
     <!-- Para bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -54,7 +35,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
         <div id="CtnHead" class="row shadow">
             <!-- aqui va el logo de la plataforma -->
             <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2">
-                <img src="assets/img/Logo.png">
+                <img src="../assets/img/Logo.png">
                 <h5>El comercio entre nosotros</h5>
             </div>
             <!-- Barra de navegación con el titulo en grande, con la barra de navegación y el botón de inicio de sesión -->
@@ -78,16 +59,16 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                             <a class="nav-link disabled" aria-current="page">Categorias</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="inicio.php">Inicio</a>
+                                            <a class="nav-link" href="../inicio.php">Inicio</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="comida.php">Comida</a>
+                                            <a class="nav-link" href="../comida.php">Comida</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="ropa.php">Ropa</a>
+                                            <a class="nav-link" href="../ropa.php">Ropa</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="utiles.php">Utiles</a>
+                                            <a class="nav-link" href="../utiles.php">Utiles</a>
                                         </li>
 
                                     </ul>
@@ -105,11 +86,11 @@ $ventaTabla = $conn->query($comandoSQLVentas);
         <section class="container">
             <?php foreach($result as $productos): ?>
             <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
-            <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
+            <a class="container2" href="../producto.php?art=<?php echo $productos['IdProductos']?>">
                 <div class="producto">
                     <div class="imagen">
                         <br>
-                        <img src="assets/img/<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
+                        <img src="../assets/img/<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
                     </div>
                     <span class="texto"><!-- Se muestra el nombre del producto y su precio dentro del div, del producto -->
                         <h4><?php echo $productos['Nombre']?></h4>
