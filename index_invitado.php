@@ -25,12 +25,7 @@ if ($conn->connect_error) {
 // Consulta para obtener los datos de la tabla
 $sql = "SELECT IdProductos, Nombre, Ruta_Foto, Precio, Descripcion FROM productos";
 $result = $conn->query($sql);
-
-// $idUsuario='1';// Variable de test.. usuario no 1.
-$idUsuario=$_SESSION['IdPersonas'];
-$comandoSQLVentas = "SELECT f.Mensaje FROM folios f LEFT JOIN clientes c ON f.IdCliente = c.IdClientes LEFT JOIN vendedores v ON f.IdVendedor = v.IdVendedores WHERE c.IdPersona = '$idUsuario' OR v.IdPersona = '$idUsuario'";// Consulta de las notificaciones relacionadas con el usuario
-$ventaTabla = $conn->query($comandoSQLVentas);
-       
+  
 ?>
 
 <!DOCTYPE html>
@@ -87,36 +82,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                         <button class="btn btn-outline-secondary" id="IniSes">Iniciar sesión</button>
                     </a>
                 </li>
-                <li class="nav-item mt-5 dropdown"> <!-- Botón Notificaciones -->
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                  <div class="contenedor-icono">
-                    <button class="btn btn-outline">
-                       <span id="cantidad"> 0</span> <i class="bi bi-bell-fill" width="30px" height="30"></i> </h4>
-        <ul id="listado">
-
-        </ul></button>
-                </div>
-                    </a>
-
-        
-                    <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
-                    <!-- codigo PHP para imprimir las notificaciones     -->
-                    <?php
-                        $primeraIteracion = true;
-                        foreach ($ventaTabla as $cadaNotific) {
-                            if ($primeraIteracion) {
-                                $primeraIteracion = false;
-                            } else {
-                                echo '<div class="dropdown-divider" style="margin-top: 20px;"></div>';
-                            }
-                            echo '<p>' . $cadaNotific['Mensaje'] . '</p>';
-                            echo '<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="calificacionBtn"  style="background-color: #FE8744">Agregar Calificación</button>
-                                </div>';
-                        }
-                    ?>
-                    </div>
-                </li>
+                
             </ul>
                 <div id="modal" class="modal">
                     <div class="modal-content" >
@@ -178,27 +144,6 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     </div>
                 </div>
                 
-                <!-- Modal calificacion -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header"> 
-                                <h5 class="modal-title" id="myModalLabel">Califica tu compra</h5>   
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Escribe aquí tu comentario sobre la compra" id="floatingTextarea2" style="height: 100px"></textarea>
-                                    <label for="floatingTextarea2">Escribe aquí tu comentario sobre la compra</label>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary"><i class="bi bi-hand-thumbs-up"></i></button>
-                                <button type="button" class="btn btn-secondary"><i class="bi bi-hand-thumbs-down"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Fin modal calificacion -->
             
         </div>
         </div>
@@ -236,54 +181,5 @@ $ventaTabla = $conn->query($comandoSQLVentas);
 
     <script src="assets/scripts/inicio.js"></script>
 
-    <!-- // funciones para el modal Calificaciones -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var modal = new bootstrap.Modal(document.getElementById("myModal"));
-            var closeButton = document.querySelector(".modal-header .btn-close");
-            var likeButton = document.querySelector(".modal-footer .btn-primary");
-            var dislikeButton = document.querySelector(".modal-footer .btn-secondary");
-            var textarea = document.getElementById("floatingTextarea2");
-            
-            function enviarCalificacion(calificacion, descripcion, usuario) {
-                // Realizar una solicitud AJAX al servidor
-                $.ajax({
-                    type: 'POST', // Método de la solicitud (en este caso, POST)
-                    url: 'php/guardar_calificacion.php', // URL del archivo PHP que manejará la solicitud
-                    data: {usuario: usuario ,calificacion: calificacion, descripcion: descripcion}, // Datos a enviar al servidor
-                    success: function(response) {
-                        // La solicitud se ha completado correctamente
-                        console.log(response); // Puedes imprimir la respuesta del servidor en la consola
-                    },
-                    error: function(xhr, status, error) {
-                        // Ocurrió un error durante la solicitud
-                        console.error(error); // Imprime el error en la consola
-                    }
-                });
-            }
-
-            closeButton.addEventListener("click", function() {
-                modal.hide();
-            });
-
-            likeButton.addEventListener("click", function() {
-                // Agregar la lógica para enviar el comentario y procesarlo como "Me gusta"
-                enviarCalificacion(1, textarea.value);
-                console.log("Comentario enviado correctamente. Me gusta");
-                textarea.value = ""; // Limpiar el textarea después de enviar el comentario
-                modal.hide();
-                alert("¡Gracias por tu comentario! Se ha enviado correctamente como 'Me gusta'.");
-            });
-
-            dislikeButton.addEventListener("click", function() {
-                // Agregar la lógica para enviar el comentario y procesarlo como "No me gusta"
-                enviarCalificacion(0, textarea.value);
-                console.log("Comentario enviado correctamente. No me gusta");
-                textarea.value = ""; // Limpiar el textarea después de enviar el comentario
-                modal.hide();
-                alert("¡Gracias por tu comentario! Se ha enviado correctamente como 'No me gusta'.");
-            });
-        });
-    </script>
 </body>
 </html>

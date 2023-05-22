@@ -96,10 +96,14 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                   <div class="contenedor-icono">
                     <button class="btn btn-outline">
-                        <i class="bi bi-bell-fill" width="30px" height="30"></i></button>
+                       <span id="cantidad"> 0</span> <i class="bi bi-bell-fill" width="30px" height="30"></i> </h4>
+        <ul id="listado">
+
+        </ul></button>
                 </div>
                     </a>
-            
+
+        
                     <div class="dropdown-menu p-4 text-muted" style="white-space:normal; width: 500px; -webkit-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);-moz-box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);box-shadow: 2px 6px 21px -2px rgba(0,0,0,0.5);">
                     <!-- codigo PHP para imprimir las notificaciones     -->
                     <?php
