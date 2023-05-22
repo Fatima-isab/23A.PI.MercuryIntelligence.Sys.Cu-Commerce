@@ -1,7 +1,7 @@
-DROP Database IF EXISTS E_Commerce;
+DROP Database IF EXISTS e_commerce;
 
-CREATE DATABASE E_Commerce;
-USE E_Commerce;
+CREATE DATABASE e_commerce;
+USE e_commerce;
 
 
 
