@@ -19,7 +19,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345678";
+$password = "12345";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -29,6 +29,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
+$correo=$_SESSION['usuario'];
+$res2=mysqli_query($conn, "SELECT * FROM personas WHERE correo=$correo");
+$row2 = mysqli_fetch_assoc($res2);
+$id = $row['idpersonas'];
 
 //Obtener el id del vendedor seleccionado
 if(isset($_GET['ven'])){

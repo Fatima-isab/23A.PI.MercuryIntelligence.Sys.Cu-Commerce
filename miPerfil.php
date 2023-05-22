@@ -19,7 +19,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345678";
+$password = "12345";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -30,8 +30,14 @@ if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
 
+$id=$_SESSION['IdPersonas'];
+
+$res=mysqli_query($conn, "SELECT idvendedores FROM vendedores WHERE idpersona=$id");
+$row = mysqli_fetch_assoc($res);
+$idv = $row['idvendedores'];
 // Consulta para obtener los datos de la tabla
-$sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario FROM productos";
+$sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, 
+Inventario FROM productos WHERE IdVendedor=$idv";
 $result = $conn->query($sql);
 
 
