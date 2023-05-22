@@ -89,7 +89,10 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                   <div class="contenedor-icono">
                     <button class="btn btn-outline">
-                        <i class="bi bi-bell-fill" width="30px" height="30"></i></button>
+                       <span id="cantidad"> 0</span> <i class="bi bi-bell-fill" width="30px" height="30"></i> </h4>
+        <ul id="listado">
+
+        </ul></button>
                 </div>
                     </a>
 

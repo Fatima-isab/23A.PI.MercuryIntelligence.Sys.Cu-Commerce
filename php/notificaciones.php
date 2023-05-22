@@ -1,8 +1,8 @@
 <?php//BORRAR ARCHIVO 
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
-$username = "cris";
-$password = "adminroot";
+$username = "root";
+$password = "";
 $dbname = "nueva_cucomerce";
 
 // Crear conexión
