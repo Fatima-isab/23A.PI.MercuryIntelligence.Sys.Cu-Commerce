@@ -7,9 +7,14 @@ $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
 $contrasena = hash('sha12', $contrasena);
 
+
+$query = "INSERT INTO personas (Nombres, correo, contrasena) 
+VALUES('$Nombres', '$correo', '$contrasena')"; 
+
+
+
 // Verificar que no se repita el correo
 $verificar_correo = mysqli_query($conexion, "SELECT * FROM personas WHERE correo='$correo'");
-
 if (mysqli_num_rows($verificar_correo) > 0) {
     echo '
     <script>
@@ -18,12 +23,8 @@ if (mysqli_num_rows($verificar_correo) > 0) {
     </script>
     ';
     exit();
-} else { // Correo único - se verificó ya
-    $query = "INSERT INTO personas (Nombres, correo, contrasena) 
-    VALUES('$Nombres', '$correo', '$contrasena')"; 
-    $ejecutar = mysqli_query($conexion, $query);
-}
-
+} 
+$ejecutar = mysqli_query($conexion, $query);
 if ($ejecutar) {
     echo '<script>
     alert("Registro exitoso");
