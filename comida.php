@@ -72,9 +72,13 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarNav">
+                                    
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
                                             <a class="nav-link disabled" aria-current="page">Categorias</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="inicio.php">Inicio</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="comida.php">Comida</a>
@@ -84,9 +88,6 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="utiles.php">Utiles</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="inicio.php">Inicio</a>
                                         </li>
 
                                     </ul>

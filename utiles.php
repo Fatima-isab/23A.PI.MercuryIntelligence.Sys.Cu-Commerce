@@ -77,6 +77,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                             <a class="nav-link disabled" aria-current="page">Categorias</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="inicio.php">Inicio</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="comida.php">Comida</a>
                                         </li>
                                         <li class="nav-item">
@@ -84,9 +87,6 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="utiles.php">Utiles</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="inicio.php">Inicio</a>
                                         </li>
 
                                     </ul>
