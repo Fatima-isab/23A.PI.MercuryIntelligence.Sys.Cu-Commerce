@@ -20,7 +20,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -77,8 +77,8 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                         <div class="container-fluid ">
                             <form class="d-flex w-100 " role="search">
                                 <input class="form-control me-2" type="search" placeholder="Buscar..."
-                                    aria-label="Search" id="Buscador" autocomplete="off">
-                                <button class="btn btn-outline-success" type="submit">Ir</button>
+                                    aria-label="Search" id="Buscador" name="Buscar" autocomplete="off">
+                                <button class="btn btn-outline-success" type="submit" action="../php/buscar.php">Ir</button>
                             </form>
                         </div>
                     </nav>

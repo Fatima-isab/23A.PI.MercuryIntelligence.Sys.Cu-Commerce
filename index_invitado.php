@@ -11,7 +11,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -42,7 +42,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
     <link rel="stylesheet" href="assets/styles/inicio.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cu-Commerce</title>
-    <link rel="shortcut icon" href="assets/img/Logo.png">
+    <link rel="shortcut icon" href="../assets/img/Logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Para bootstrap-->
@@ -68,9 +68,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                 <div id="BarBusque">
                     <nav class="navbar  ">
                         <div class="container-fluid ">
-                            <form class="d-flex w-100 " role="search">
+                            <form class="d-flex w-100 " role="search" action="php/buscar.php">
                                 <input class="form-control me-2" type="search" placeholder="Buscar..."
-                                    aria-label="Search" id="Buscador" autocomplete="off">
+                                    aria-label="Search" id="Buscador" name="Buscar" autocomplete="off">
                                 
                                 <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                             </form>
