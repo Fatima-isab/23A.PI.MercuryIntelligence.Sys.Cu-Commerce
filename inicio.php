@@ -130,6 +130,11 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarNav">
                                     <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                            <a class="nav-link disabled" aria-current="page">Bienvenido <?php echo $_SESSION['usuario'];?> </a>
+                                            <br>
+                                            <a href="perfiles.php?id=<?php echo $_SESSION['IdPersonas'];?>">Mi perfil</a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link disabled" aria-current="page">Categorias</a>
                                         </li>
