@@ -29,6 +29,4 @@ if(mysqli_num_rows($validar_login) > 0){
     exit;
 }
 
-
-
 ?>

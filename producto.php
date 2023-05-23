@@ -115,23 +115,23 @@ function agregar_folio($IdProductos, $IdClientes) {
         <section class="producto">
             <div class="prod">
                 <div class="imagen">
-                <a class="container2" href="perfil.php?ven=<?php echo $producto['IdVendedor']?>"><?php echo "Vendedor: ".$vendedor['Nombres']?></a>
-                    <h2><?php echo $producto['Nombre']?></h2>
-                    <img src="assets/img/<?php echo $producto['Ruta_Foto']?>" alt="" style= "width: 50%;">
+                <br><a class="container2" style="font-size: 3vh;" href="perfil.php?ven=<?php echo $producto['IdVendedor']?>"><?php echo "Vendedor: ".$vendedor['Nombres']?></a><br>
+                    <br><h2 style="font-size: 4vh;"><?php echo $producto['Nombre']?></h2><br>
+                    <img src="assets/img/<?php echo $producto['Ruta_Foto']?>" alt="" style= "width: 30%;">
                 </div>
                 <div class="texto">
-                    <p><?php echo "Precio: ".$producto['Precio']?></p>
-                    <p><?php echo "Descripción: ".$producto['Descripcion']?></p>
-                    <p><?php echo "Caducidad: ".$producto['FCaducidad']?></p>
-                    <p><?php echo "Existencia: ".$producto['Inventario']?></p>
-                    <p><?php echo "Contacto del vendedor: ".$vendedor['correo']?></p>
+                    <br><p style="font-weight: bolder;"><?php echo "Precio: ".$producto['Precio']?></p> <hr>
+                    <br><p style="font-weight: bolder;"><?php echo "Descripción: ".$producto['Descripcion']?></p><hr>
+                    <br><p style="font-weight: bolder;"><?php echo "Caducidad: ".$producto['FCaducidad']?></p><hr>
+                    <br><p style="font-weight: bolder;"><?php echo "Existencia: ".$producto['Inventario']?></p><hr>
+                   <br> <p style="font-weight: bolder;"><?php echo "Contacto del vendedor: ".$vendedor['correo']?></p><br>
                 </div>  <!-- Botón Compra -->
 			</div>
             <div class="compra"> <!-- Botón Compra -->
      
      <div class="botones">
          <a id="btnComprar" href="#" class="boton primario"><i class="bi bi-coin" onclick="agregar_folio($art_id,$idUsuario);"></i>Comprar</a>
-     </div>
+     </div><br><br><br><br><br>
  </div>
 
          
@@ -142,8 +142,8 @@ function agregar_folio($IdProductos, $IdClientes) {
     </main>
     <div class="clear"></div>
     
-    <footer>
+   <!-- <footer>
         <p>Mercury Intelligent</p>
-    </footer>
+    </footer> -->
     <script src="assets/scripts/perfil.js"></script>
 </body>
