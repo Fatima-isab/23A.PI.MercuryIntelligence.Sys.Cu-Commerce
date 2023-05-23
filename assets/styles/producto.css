@@ -43,18 +43,14 @@ footer {
     position: fixed;
     bottom:0;
 }
-.texto{
-    display: flex;
-    flex-wrap: wrap;
+hr{
+    margin-left: 35%;
+    width: 30%;
+    margin-top: 5px;
 }
 .imagen{
     text-align: center;
     color: var(--Principal);
-}
-
-#foto{
-    width: 100;
-    height: 50;
 }
 
 .producto{
