@@ -1,8 +1,7 @@
-
 <?php 
-
-
 // Configuración de la conexión a la base de datos
+session_start();
+$idUsuario = $_SESSION['IdPersonas'];
 $servername = "localhost";
 $username = "root";
 $password = "12345678";
@@ -118,7 +117,7 @@ function agregar_folio($IdProductos, $IdClientes) {
                 <div class="imagen">
                 <a class="container2" href="perfil.php?ven=<?php echo $producto['IdVendedor']?>"><?php echo "Vendedor: ".$vendedor['Nombres']?></a>
                     <h2><?php echo $producto['Nombre']?></h2>
-                    <img src="assets/<?php echo $producto['Ruta_Foto']?>" alt="">
+                    <img src="assets/img/<?php echo $producto['Ruta_Foto']?>" alt="" style= "width: 50%;">
                 </div>
                 <div class="texto">
                     <p><?php echo "Precio: ".$producto['Precio']?></p>
@@ -131,7 +130,7 @@ function agregar_folio($IdProductos, $IdClientes) {
             <div class="compra"> <!-- Botón Compra -->
      
      <div class="botones">
-         <a href="#" class="boton primario"><i class="bi bi-coin"></i>Comprar</a>
+         <a id="btnComprar" href="#" class="boton primario"><i class="bi bi-coin" onclick="agregar_folio($art_id,$idUsuario);"></i>Comprar</a>
      </div>
  </div>
 

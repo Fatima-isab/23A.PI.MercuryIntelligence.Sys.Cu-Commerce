@@ -144,10 +144,10 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                             <a class="nav-link" href="comida.php">Comida</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Ropa</a>
+                                            <a class="nav-link" href="ropa.php">Ropa</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="comida.php">Utiles</a>
+                                            <a class="nav-link" href="utiles.php">Utiles</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link cerrar-sesion" href="./cerrar.php">Cerrar sesión</a>
