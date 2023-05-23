@@ -47,27 +47,23 @@ $result = $conn->query($sql);
 
 <body>
     <header>
-        <div id="CtnHead" class="row shadow">
+    <div id="CtnHead" class="row shadow">
             <!-- aqui va el logo de la plataforma -->
-            <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2"> 
-                <img src="assets/img/Logo.png">
-                <h5>El comercio entre nosotros</h5>
+            <div id="Logo" class="col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                <img src="assets/img/Logo.png" style="width: 50px;">
+                <h5>Cu-Commerce</h5>
             </div>
             <!-- Barra de navegación con el titulo en grande, con la barra de navegación y el botón de inicio de sesión -->
             <div id="NomBar" class="col-sm-8 col-md-8 col-lg-6 col-xl-6">
                 <div id="NomPrin">
-                <hr style="border-color: red; border-width: 3px; width: 23%; margin-left: 13%; margin-top: 5%;">
-                    <h4 style="margin-top: 3%;">Cu - Commerce </h4>
-                    <hr style="border-color: red; border-width: 3px; width: 23%; margin-top: 5%;">
+
                 </div>
                 <div id="BarBusque">
                     <nav class="navbar  ">
                         <div class="container-fluid ">
-                            <form class="d-flex w-100 " role="search" action="php/buscar.php">
-                                <input class="form-control me-2" type="search" placeholder="Buscar..."
-                                    aria-label="Search" id="Buscador" name="Buscar" autocomplete="off">
-                                
-                                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                            <form class="d-flex w-100 " role="search">
+                                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" id="Buscador" name="Buscar" autocomplete="off">
+                                <button class="btn btn-outline-success" type="submit" action="../php/buscar.php"><i class="bi bi-search"></i></button>
                             </form>
                         </div>
                     </nav>
@@ -77,7 +73,7 @@ $result = $conn->query($sql);
         <div id="Config" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 ">
             
             <ul class="nav">
-                <li class="nav-item mt-5"> <!-- Botón Iniciar sesión -->
+                <li class="nav-item mt-4"> <!-- Botón Iniciar sesión -->
                 <a href="sign_up.php">
                         <button class="btn btn-outline-secondary" id="IniSes">Iniciar sesión</button>
                     </a>

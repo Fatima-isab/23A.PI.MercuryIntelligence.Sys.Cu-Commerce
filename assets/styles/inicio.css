@@ -19,19 +19,19 @@
     display: flex;
     flex-direction: row;
     text-align: center;
+    height: 13vh;
 }
 
 #Logo h5 {
     font-size: 2.2vh;
-    margin-top: 3%;
     font-family: 'Overpass', sans-serif;
     
 }
 
 #Logo img {
     width: 15vh;
-    margin-top: 10%;
     margin-left: 5%;
+    margin-top: 5%;
 }
 #NomPrin{
     display: flex;
@@ -42,8 +42,8 @@
 
 
 #BarBusque {
-    
-    display:grid;
+    padding-top: 3%;
+    display:flex;
     justify-content: center;
 }
 #BarBusque nav{
@@ -60,16 +60,15 @@
     margin-left: 0.5rem;
 }
 
-#Ubi{
-    text-align: center;
+#Config{
+    height: 100%;
+    
 }
-#IniSes{
-    margin-top: 19%;
+#Config .nav{
+    height: 100%;  
 }
-
-
-#Ubi{
-    text-align: center;
+#navbar{
+    margin-top: 0%;
 }
 
 
@@ -78,12 +77,10 @@
   background-color: var(--Principal); /* Color de fondo */
   border: none; /* Quitamos el borde */
   color: white; /* Color del texto */
-  padding: 10px 20px; /* Añadimos un poco de padding para hacerlo más grande */
   text-align: center; /* Centramos el texto */
   text-decoration: none; /* Quitamos la decoración */
   display: inline-block; /* Lo hacemos un elemento en línea */
   font-size: 16px; /* Tamaño de letra */
-  margin: 4px 2px; /* Añadimos un poco de margen */
   cursor: pointer; /* Cambiamos el cursor */
   border-radius: 8px; /* Añadimos un borde redondeado */
 }
@@ -92,7 +89,7 @@
   color: #A4A2A2;
 }
 /* Formulario */
-* Handle */
+/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #262228;
     border-radius: 5px;
@@ -214,5 +211,41 @@ text-align: center;
     border-radius: 7px;
 }
 
+/*Media Queries*/
 
+/*Desktop*/
+@media screen and (min-width: 992px ) {
+    .icon-menu{
+    
+    }
+}
+
+/*Tablet*/
+@media screen and (min-width: 601px) and (max-width: 991px){
+    #CtnHead{
+        height: 25vh;
+    }
+    #Config{
+        display: flex;
+        justify-content: center;
+    }
+    #BarBusque{
+        margin-right: 10%;
+    }
+
+}
+
+/*Moviles*/
+@media screen and (min-width: 280px) and (max-width: 600px) {
+    #BarBusque{
+        display: none;
+    }
+    #CtnHead{
+        height: 29vh;
+    }
+    #Config{
+        display: flex;
+        justify-content: center;
+    }
+}
 
