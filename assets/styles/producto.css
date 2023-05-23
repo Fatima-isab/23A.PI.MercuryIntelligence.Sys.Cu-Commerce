@@ -43,7 +43,10 @@ footer {
     position: fixed;
     bottom:0;
 }
-
+.texto{
+    display: flex;
+    flex-wrap: wrap;
+}
 .imagen{
     text-align: center;
     color: var(--Principal);
