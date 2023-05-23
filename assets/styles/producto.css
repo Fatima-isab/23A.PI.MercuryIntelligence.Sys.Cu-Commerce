@@ -43,7 +43,11 @@ footer {
     position: fixed;
     bottom:0;
 }
-
+hr{
+    margin-left: 35%;
+    width: 30%;
+    margin-top: 5px;
+}
 .imagen{
     text-align: center;
     color: var(--Principal);

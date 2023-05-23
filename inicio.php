@@ -144,10 +144,10 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                             <a class="nav-link" href="comida.php">Comida</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Ropa</a>
+                                            <a class="nav-link" href="ropa.php">Ropa</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="comida.php">Utiles</a>
+                                            <a class="nav-link" href="utiles.php">Utiles</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link cerrar-sesion" href="./cerrar.php">Cerrar sesión</a>
@@ -169,7 +169,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                             <form action="assets/config/guardar.php" method="post" class="formulario" enctype="multipart/form-data" onsubmit="return validarFormulario()">
 
                                 <br>
-                                <label for="image" class="texto">Selecciona imagen del producto</label><br>
+                                <label for="image" id="texto">Selecciona imagen del producto</label><br>
                                 <input type="file" name="Ruta_Foto" id="Ruta_Imagen" required style="border-radius: 8px;
                                      border: 3px;">
 
@@ -185,15 +185,15 @@ $ventaTabla = $conn->query($comandoSQLVentas);
 
                                 <textarea name="Descripcion" id="Descripcion" placeholder="Descripcion del producto" style="border-radius: 8px;"></textarea>
 
-                                <br><p>Fecha de Caducidad: </p>
+                               <br> <br><p>Fecha de Caducidad: </p>
                                 <input type="date" id="FCaducidad" name="FCaducidad">
                                 <br>
-
+                                <br>
                                 <p>Categoria (Comida, Utiles, Ropa): </p>
                                 <input type="text" name="Categoria" id="Categoria" required placeholder="(Comida, Utiles, Ropa)">
 
                                 <br>
-
+                                <br>
                                 <p>Piezas Disponibles</p>
                                 <input type="number" id="Inventario" name="Inventario" step="1" min="0" placeholder="Piezas" required>
 
@@ -208,9 +208,9 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                                         <?php echo $msg; ?>
                                     </p>
                                 <?php endif; ?>
-                                <br>
-                                <input type="submit" value="Publicar">
-                                <input type="reset" value="Descartar">
+                                <br><br>
+                                <input type="submit" value="Publicar" id="btnmodal1">
+                                <input type="reset" value="Descartar" id="btnmodal" >
                                 <br>
                                 <br>
                                 <label for=""></label>

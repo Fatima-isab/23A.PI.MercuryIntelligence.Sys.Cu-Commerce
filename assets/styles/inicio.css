@@ -143,14 +143,30 @@
     height: 100%;
     overflow: auto;
     text-align: center;
+    font-family: 'Overpass', sans-serif;
   }
   .cerrar{
     cursor: pointer;
     width: 3%;
     border-radius: 50%;
-    color:red;
+    color:white;
+    background-color: red;
     
  }
+ #texto{
+    text-align: center;
+    font-size: 120%;
+ }
+ #btnmodal{
+    background-color: rgb(243, 96, 96);
+    border-radius: 5px;
+    width: 13%;
+ }#btnmodal1{
+    background-color: rgb(77, 231, 111);
+    border-radius: 5px;
+    width: 13%;
+ }
+
   .cerrar:hover{
     box-shadow: 0 7px 15px var(--gris);  
 }
@@ -190,7 +206,6 @@
     text-decoration: none;
 
 }
-
 .imagen{
 text-align: center;
 }
