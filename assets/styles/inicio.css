@@ -262,6 +262,45 @@ text-align: center;
 
 }
 
+/***Modo oscuro***/
+#modo{
+    width: 20px;
+    font-size: 50px;
+    margin-left: 350px;
+    cursor: pointer;
+    
+}
+
+.dark{
+    background: rgb(55, 68, 70);
+}
+
+.dark h5{
+    color: white;
+}
+
+.dark .nav-item{
+    color: rgb(209, 208, 208);
+}
+.dark #modo{
+    color: rgb(255, 149, 0);
+}
+.dark .card__perfil{
+    background: rgb(16, 43, 51);
+}
+.dark p{
+    color: rgb(211, 211, 211);
+}
+.dark h2{
+    color: white;
+}
+.dark .enlace{
+    background: rgb(13, 84, 117);
+}
+.dark .card__perfil:hover{
+    border: solid green 2px;
+}
+
 /*Moviles*/
 @media screen and (min-width: 280px) and (max-width: 600px) {
     #BarBusque{
@@ -275,4 +314,3 @@ text-align: center;
         justify-content: center;
     }
 }
-

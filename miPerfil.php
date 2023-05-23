@@ -212,7 +212,7 @@ text-align: center;
         }
 
         .modal-content {
-            background-color: orange;
+            background-color: #FFEECD;
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
@@ -222,6 +222,7 @@ text-align: center;
 
         .modal-content button {
             margin-top: 10px;
+            background-color: #FE8744;
         }
         
 @media (max-width: 750px) {
@@ -287,8 +288,7 @@ text-align: center;
             
                
             <div class="producto">
-            <button onclick="openModal()">&times;</button>
-            <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
+            <a class="container2" href="./php/eliminar.php?art=<?php echo $productos['IdProductos']?>">
                     <div class="imagen">
                         <br>
                         <img src="assets/img/<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
@@ -303,39 +303,11 @@ text-align: center;
         </section>
             </div>
 
-            <div id="myModal" class="modal">
-        <div class="modal-content">
-            <h3>¿Estás seguro de que deseas eliminar el producto?</h3>
-            <div class="modal-buttons">
-                <button onclick="deleteProduct()">Sí</button>
-                <button onclick="closeModal()">No</button>
-            </div>
-        </div>
-    </div>
-
     </section>
 <style>
 </style>
 </body>
  </body>
- <script>
-        function openModal() {
-            document.getElementById("myModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-
-        function deleteProduct() {
-            // Aquí puedes realizar la lógica para eliminar el producto utilizando PHP
-            // Puedes enviar una solicitud AJAX a un script PHP que maneje la eliminación del producto.
-            // En este ejemplo, simplemente recargamos la página después de 1 segundo.
-            setTimeout(function() {
-                location.reload();
-            }, 1000);
-        }
-    </script>
  </html>
 
  
