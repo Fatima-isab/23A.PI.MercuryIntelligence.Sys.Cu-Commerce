@@ -1,8 +1,7 @@
-
 <?php 
-
-
 // Configuración de la conexión a la base de datos
+session_start();
+$idUsuario = $_SESSION['IdPersonas'];
 $servername = "localhost";
 $username = "root";
 $password = "12345678";
@@ -131,7 +130,7 @@ function agregar_folio($IdProductos, $IdClientes) {
             <div class="compra"> <!-- Botón Compra -->
      
      <div class="botones">
-         <a href="#" class="boton primario"><i class="bi bi-coin"></i>Comprar</a>
+         <a id="btnComprar" href="#" class="boton primario"><i class="bi bi-coin" onclick="agregar_folio($art_id,$idUsuario);"></i>Comprar</a>
      </div>
  </div>
 
