@@ -11,7 +11,7 @@ CREATE TABLE personas (
   Nombres VARCHAR(45) NOT NULL COMMENT 'Nombre(s) de la persona a registrar',
   correo VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
   contrasena VARCHAR(150) DEFAULT NULL COMMENT 'Contrase;a de la persona',
-  rol VARCHAR(150) NOT NULL COMMENT 'Correo de la persona, el cual debe ser único',
+  rol VARCHAR(150) NOT NULL DEFAULT 'cliente' COMMENT 'Rol de la persona, el cual debe ser único',
   UNIQUE (correo),
   PRIMARY KEY (IdPersonas)
 ) COMMENT = 'Tabla para el almacenamiento de los datos generales de las personas que se agregarán al sistema.';
