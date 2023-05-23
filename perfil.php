@@ -249,9 +249,9 @@ text-align: center;
                     <li>Calificaciones</li>
                 </ul>
                 <ul class="lista-datos">
-                    <li><?php echo $_SESSION['usuario'];?></li>
-                    <li><?php echo $_SESSION['usuario'];?></li>
-                    <li><?php echo $_SESSION['usuario'];?></li>
+                    <li><?php ;?></li>
+                    <li><?php ;?></li>
+                    <li><?php ;?></li>
                 </ul>
             </div>
             <div>
