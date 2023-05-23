@@ -12,5 +12,7 @@ function abrirModal() {
   const publicar = document.getElementById("publicar");
   publicar.onclick = function() {
     // Aquí iría el código para agregar una respuesta al cuestionario
+    
+
   }
   
