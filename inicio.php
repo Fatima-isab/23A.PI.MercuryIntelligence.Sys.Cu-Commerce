@@ -168,13 +168,14 @@ $ventaTabla = $conn->query($comandoSQLVentas);
                         <section>
                             <form action="assets/config/guardar.php" method="post" class="formulario" enctype="multipart/form-data" onsubmit="return validarFormulario()">
 
-                                <label for="image">Selecciona imagen del producto</label>
+                                <br>
+                                <label for="image" class="texto">Selecciona imagen del producto</label><br>
                                 <input type="file" name="Ruta_Foto" id="Ruta_Imagen" required style="border-radius: 8px;
                                      border: 3px;">
 
 
 
-                                <br>
+                                <br><br>
                                 <input type="text" name="Nombre" id="Nombre" required placeholder="Nombre del Producto">
 
                                 <input type="number" id="Precio" name="Precio" step="1" min="0" placeholder="Precio" required>
@@ -184,7 +185,7 @@ $ventaTabla = $conn->query($comandoSQLVentas);
 
                                 <textarea name="Descripcion" id="Descripcion" placeholder="Descripcion del producto" style="border-radius: 8px;"></textarea>
 
-                                <p>Fecha de Caducidad: </p>
+                                <br><p>Fecha de Caducidad: </p>
                                 <input type="date" id="FCaducidad" name="FCaducidad">
                                 <br>
 
