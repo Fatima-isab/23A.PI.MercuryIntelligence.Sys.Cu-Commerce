@@ -197,6 +197,33 @@ text-align: center;
 .producto:hover{
     box-shadow: 0px 0px 15px rgb(243, 114, 9);
 }
+
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: orange;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+        }
+        
 @media (max-width: 750px) {
     .seccion-perfil-usuario .lista-datos {
         width: 100%;
@@ -215,6 +242,15 @@ text-align: center;
 .producto{
     width: 100%;
 }
+
+.cerrar{
+    cursor: pointer;
+    width: 3%;
+    border-radius: 50%;
+    color:red;
+ }
+
+
 }
 </style>
 <header>
@@ -248,8 +284,11 @@ text-align: center;
                     
             <?php foreach($result as $productos): ?>
             <!-- "container2" es el contenedor padre del que nacen los demás contenedores para los productos -->
+            
+               
+            <div class="producto">
+            <button onclick="openModal()">&times;</button>
             <a class="container2" href="producto.php?art=<?php echo $productos['IdProductos']?>">
-                <div class="producto">
                     <div class="imagen">
                         <br>
                         <img src="assets/img/<?php echo $productos['Ruta_Foto']?>" alt="" width="250" height="200">
@@ -258,17 +297,45 @@ text-align: center;
                         <h4><?php echo $productos['Nombre']?></h4>
                         <h4><?php echo "$".$productos['Precio']?></h4>
                     </span>
-                </div>
             </a>
+                </div>
             <?php endforeach;?>
         </section>
             </div>
+
+            <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h3>¿Estás seguro de que deseas eliminar el producto?</h3>
+            <div class="modal-buttons">
+                <button onclick="deleteProduct()">Sí</button>
+                <button onclick="closeModal()">No</button>
+            </div>
+        </div>
+    </div>
 
     </section>
 <style>
 </style>
 </body>
  </body>
+ <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function deleteProduct() {
+            // Aquí puedes realizar la lógica para eliminar el producto utilizando PHP
+            // Puedes enviar una solicitud AJAX a un script PHP que maneje la eliminación del producto.
+            // En este ejemplo, simplemente recargamos la página después de 1 segundo.
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
+        }
+    </script>
  </html>
 
  
