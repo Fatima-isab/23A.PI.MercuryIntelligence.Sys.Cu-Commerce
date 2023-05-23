@@ -115,7 +115,7 @@ function agregar_folio($IdProductos, $IdClientes) {
         <section class="producto">
             <div class="prod">
                 <div class="imagen">
-                <br><a class="container2" style="font-size: 3vh;" href="perfil.php?ven=<?php echo $producto['IdVendedor']?>"><?php echo "Vendedor: ".$vendedor['Nombres']?></a><br>
+                <br><a class="container2" style="text-decoration:none" style="font-size: 3vh;" href="perfil.php?ven=<?php echo $producto['IdVendedor']?>"><?php echo "Vendedor: ".$vendedor['Nombres']?></a><br>
                     <br><h2 style="font-size: 4vh;"><?php echo $producto['Nombre']?></h2><br>
                     <img src="assets/img/<?php echo $producto['Ruta_Foto']?>" alt="" style= "width: 30%;">
                 </div>
