@@ -19,7 +19,7 @@ NAVARRO GUTIÉRREZ ESTHEFANI
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "12345678";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -29,10 +29,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
-$correo=$_SESSION['usuario'];
-$res2=mysqli_query($conn, "SELECT * FROM personas WHERE correo=$correo");
-$row2 = mysqli_fetch_assoc($res2);
-$id = $row['idpersonas'];
 
 //Obtener el id del vendedor seleccionado
 if(isset($_GET['ven'])){
@@ -41,10 +37,20 @@ if(isset($_GET['ven'])){
 
 
 
-// Consulta para obtener los datos de la tabla
+// Consulta para obtener los datos de los productos publicados
 $sql = "SELECT IdProductos, IdVendedor, Nombre, Ruta_Foto, Precio, Descripcion, FCaducidad, Categoria, Inventario 
 FROM productos WHERE IdVendedor= $ven_id";
 $result = $conn->query($sql);
+
+$res=mysqli_query($conn, "SELECT idpersona FROM vendedores WHERE idvendedores=$ven_id");
+$row = mysqli_fetch_assoc($res);
+$idp = $row['idpersona'];
+
+$ress=mysqli_query($conn, "SELECT IdPersonas, Nombres FROM personas WHERE idpersonas=$idp");
+$roww = mysqli_fetch_assoc($ress);
+
+
+
 
 
 
@@ -233,7 +239,7 @@ text-align: center;
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
-                <h3 class="titulo"><?php echo $_SESSION['usuario'];?></h3>
+                <h3 class="titulo"><?php echo $roww['Nombres'];?></h3>
                 <p class="texto"></p>
             </div>
             <div class="perfil-usuario-estadisticas">
