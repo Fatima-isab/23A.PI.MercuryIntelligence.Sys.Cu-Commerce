@@ -1,8 +1,8 @@
 <?php
 
     $server = "localhost";
-    // $port = "3306";
-    $port = "8889";
+     $port = "3306";
+    //$port = "8889";
     $user = "root";
     $pass = "12345678";
     $db = "e_commerce";
