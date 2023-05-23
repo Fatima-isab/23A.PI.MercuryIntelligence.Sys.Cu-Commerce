@@ -5,7 +5,7 @@
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
-$password = "12345";
+$password = "12345678";
 $dbname = "e_commerce";
 
 // Crear conexión
@@ -49,6 +49,7 @@ if ($producto) {
 
 // Compra 
 function agregar_folio($IdProductos, $IdClientes) {
+    session_start();
     // Establecer la conexión con la base de datos
     $servername = "localhost";
     $username = "root";
@@ -73,9 +74,10 @@ function agregar_folio($IdProductos, $IdClientes) {
     if ($result->num_rows > 0) {
       // Obtener el resultado de la consulta
       $row = $result->fetch_assoc();
-      $IdVendedor = $row["IdVendedor"];
+      $IdVendedor = $row["IdVendedor"]; // Obtiene llave primaria del vendedor
     }
-  
+    $IdClientes=$_SESSION['IdPersonas']; // Obtiene llave primaria del comprador
+
     // Insertar el nuevo folio en la tabla "folios"
     $sql2 = "INSERT INTO folios (IdProducto, IdCliente, IdVendedor) VALUES ($IdProductos, $IdClientes, $IdVendedor)";
     $conex->query($sql2);
@@ -124,22 +126,18 @@ function agregar_folio($IdProductos, $IdClientes) {
                     <p><?php echo "Caducidad: ".$producto['FCaducidad']?></p>
                     <p><?php echo "Existencia: ".$producto['Inventario']?></p>
                     <p><?php echo "Contacto del vendedor: ".$vendedor['correo']?></p>
-                
-            </div>  <!-- Botón Compra -->
-					
-				</div>
-                <input type="checkbox" id="btn-modal">
-	<label for="btn-modal" class="lbl-modal" >Comprar</label>
-	<div class="modal">
-		<div class="contenedor">
-			<header>¡Compra exitosa!</header>
-			<label for="btn-modal">X</label>
-			<div class="contenido">
-				<h3><!-- Agregar un titulo --></h3>
-				<p>Gracias por tu compra</p>
+                </div>  <!-- Botón Compra -->
 			</div>
-		</div>
-</div>
+            <div class="compra"> <!-- Botón Compra -->
+     
+     <div class="botones">
+         <a href="#" class="boton primario"><i class="bi bi-coin"></i>Comprar</a>
+     </div>
+ </div>
+
+         
+     </div>
+ </div>
 			</div>
         </section>
     </main>
@@ -149,5 +147,4 @@ function agregar_folio($IdProductos, $IdClientes) {
         <p>Mercury Intelligent</p>
     </footer>
     <script src="assets/scripts/perfil.js"></script>
->>>>>>> e97a41fc0e2971e2bd6b8d80006d6ecb4cfb547c
 </body>
